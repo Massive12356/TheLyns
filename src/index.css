@@ -1,0 +1,80 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Quicksand', system-ui, -apple-system, sans-serif;
+  color: #1A1A1A;
+  background-color: #fafaf9;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Quicksand', system-ui, sans-serif;
+  color: #1A1A1A;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F7941D;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C77308;
+}
+
+/* Selection color */
+::selection {
+  background-color: #F7941D;
+  color: #ffffff;
+}
+
+/* Custom alternating animation for Donate button — tonal orange pulse with black text */
+@keyframes alternate-theme {
+  0%, 45% {
+    background-color: #F7941D;
+    border-color: #F7941D;
+    color: #000000;
+  }
+  50%, 95% {
+    background-color: #FAB05A;
+    border-color: #FAB05A;
+    color: #000000;
+  }
+  100% {
+    background-color: #F7941D;
+    border-color: #F7941D;
+    color: #000000;
+  }
+}
+
+.animate-alternate-theme {
+  animation: alternate-theme 4s ease-in-out infinite;
+}
