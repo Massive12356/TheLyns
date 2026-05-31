@@ -319,7 +319,7 @@ const AboutPage = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
-                      <span className="inline-block px-3 py-1 bg-accent text-primary-dark text-xs font-semibold rounded-full mb-2">
+                      <span className="inline-block px-3 py-1 bg-accent text-white text-xs font-semibold rounded-full mb-2">
                         {founder.title}
                       </span>
                       <h3 className="text-2xl font-display font-bold text-white">{founder.name}</h3>
