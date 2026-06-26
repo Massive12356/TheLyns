@@ -1,4 +1,4 @@
-import { Project, Event, BlogPost, TeamMember, Partner, NGOInfo, PatientStory, FAQItem } from '../types';
+import { Project, Event, BlogPost, TeamMember, Partner, NGOInfo, PatientStory, FAQItem, GalleryImage } from '../types';
 
 export const ngoInfo: NGOInfo = {
   name: 'The Lys Foundation',
@@ -42,14 +42,14 @@ export const ngoInfo: NGOInfo = {
     }
   ],
   address: 'Accra, Ghana',
-  phone: '+233 24 123 4567',
+  phone: '+233 24 345 8689',
   email: 'info@lysfoundation.org',
   businessHours: 'Monday - Friday: 7:30 AM - 4:00 PM',
   bankDetails: {
-    accountName: 'The Lys Foundation',
-    bankName: 'Ecobank Ghana',
-    accountNumber: '0123456789012',
-    branch: 'Accra Main Branch'
+    accountName: 'Lys Foundation',
+    bankName: 'Fidelity Bank',
+    accountNumber: '2090406972518',
+    branch: 'Dzorwulu'
   },
   momoDetails: {
     number: '+233 59 123 4567',
@@ -70,7 +70,11 @@ export const founders: TeamMember[] = [
     role: 'Co-Founder & Director',
     title: 'Director, Lys Foundation School',
     image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1780181942/jemima_hxaygd.jpg',
-    bio: 'Jemima K. Adamah is a Pastor and Strategic Educationist who trained as an Architect at the Kwame Nkrumah University of Science and Technology (KNUST). She holds a Masters in Land Management and Informal Settlement Regularisation from the Institute of Housing Studies at Erasmus University and is a registered member of the Ghana Institute of Architects, specializing in Facilities Management and Interior Design. Passionate about children for over 25 years, she has led children and youth ministries, headed AWANA clubs, and created vacation bible and recreational programs. In 2022, Jemima left her full-time architecture career to pursue her calling — providing equity in education for underprivileged children through The Lys Foundation, while also ministering to women through spiritual retreats across Kenya, Tanzania, Rwanda, Zimbabwe, and expanding to the USA, Canada, and the UK. With a diploma in Montessori education and a hands-on approach, she serves as Director at the Lys Foundation School.',
+    bio: `Jemima K. Adamah is a Pastor and Strategic Educationist who trained as an Architect at the Kwame Nkrumah University of Science and Technology (KNUST). She holds a Masters in Land Management and Informal Settlement Regularisation from the Institute of Housing Studies at Erasmus University and is a registered member of the Ghana Institute of Architects, specializing in Facilities Management and Interior Design.
+
+Passionate about children for over 25 years, she has led children and youth ministries, headed AWANA clubs, and created vacation bible and recreational programs. In 2022, Jemima left her full-time architecture career to pursue her calling — providing equity in education for underprivileged children through The Lys Foundation, while also ministering to women through spiritual retreats across Kenya, Tanzania, Rwanda, Zimbabwe, and expanding to the USA, Canada, and the UK.
+
+With a diploma in Montessori education and a hands-on approach, she serves as Director at the Lys Foundation School.`,
     expertise: ['Montessori Education', 'Child Development', 'Facilities Management', 'Interior Design', 'Strategic Education', 'Pastoral Ministry'],
     education: [
       'Diploma in Montessori Education',
@@ -102,7 +106,11 @@ export const founders: TeamMember[] = [
     role: 'Co-Founder & Head of Sponsorship',
     title: 'Sponsorship & Business Development',
     image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1780181941/ewura_sgl3s8.jpg',
-    bio: 'Ewurama Ocran-Gbekor is a Project Management Professional and a member of the PMI. She holds a Masters in Architecture from the Kwame Nkrumah University of Science and Technology (KNUST) in Kumasi, Ghana. With over 15 years of professional experience in the design and development of architectural projects and urban plans, 12 years of site supervision and reporting, and 8 years of project management integrating with diverse multidisciplinary teams, Ewurama is a registered Architect and an Associate of the Ghana Institute of Architects. She is also the co-founder of Architecture Alliance Ghana. Profiled on Metro TV on International Women\'s Day for her impact, Ewurama currently leads sponsorship and business development at The Lys Foundation.',
+    bio: `Ewurama Ocran-Gbekor is a Project Management Professional and a member of the PMI. She holds a Masters in Architecture from the Kwame Nkrumah University of Science and Technology (KNUST) in Kumasi, Ghana.
+
+With over 15 years of professional experience in the design and development of architectural projects and urban plans, 12 years of site supervision and reporting, and 8 years of project management integrating with diverse multidisciplinary teams, Ewurama is a registered Architect and an Associate of the Ghana Institute of Architects.
+
+She is also the co-founder of Architecture Alliance Ghana. Profiled on Metro TV on International Women's Day for her impact, Ewurama currently leads sponsorship and business development at The Lys Foundation.`,
     expertise: ['Project Management', 'Architecture & Urban Planning', 'Site Supervision', 'Sponsorship & Business Development', 'Multidisciplinary Team Leadership'],
     education: [
       'Masters in Architecture, Kwame Nkrumah University of Science and Technology (KNUST)',
@@ -154,9 +162,9 @@ export const projects: Project[] = [
     status: 'Active',
     startDate: 'September 2021',
     location: 'Accra, Ghana',
-    image: 'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png',
     gallery: [
-      'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png'
     ],
     featured: true,
     impact: {
@@ -184,9 +192,9 @@ export const projects: Project[] = [
     startDate: 'June 2022',
     endDate: 'Ongoing',
     location: 'Greater Accra & rural Ghana',
-    image: 'https://images.pexels.com/photos/8473553/pexels-photo-8473553.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499483/file_00000000861872438a811f0d6c3b3948_xidrzq.png',
     gallery: [
-      'https://images.pexels.com/photos/8473553/pexels-photo-8473553.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499483/file_00000000861872438a811f0d6c3b3948_xidrzq.png'
     ],
     featured: true,
     impact: {
@@ -215,9 +223,9 @@ export const projects: Project[] = [
     startDate: 'September 2021',
     endDate: 'Ongoing',
     location: 'Accra, Ghana',
-    image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499482/file_0000000074047246a49f814865a4f0bc_ysaxea.png',
     gallery: [
-      'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499482/file_0000000074047246a49f814865a4f0bc_ysaxea.png'
     ],
     featured: true,
     impact: {
@@ -245,15 +253,49 @@ export const projects: Project[] = [
     startDate: 'January 2022',
     endDate: 'Ongoing',
     location: 'Accra, Ghana',
-    image: 'https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_00000000498c71f4818bcbc1c815fddc_aqktan.png',
     gallery: [
-      'https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?auto=compress&cs=tinysrgb&w=800'
+      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_00000000498c71f4818bcbc1c815fddc_aqktan.png'
     ],
     featured: false,
     impact: {
       patients: 85,
       communities: 4,
       reach: 'Regional'
+    }
+  },
+  {
+    id: 5,
+    slug: 'steam-education-program',
+    title: 'STEAM Education Program',
+    category: 'STEAM',
+    type: 'Integrated Curriculum',
+    description: 'Science, Technology, Engineering, Arts, and Mathematics integrated into our Montessori curriculum through hands-on experiments, digital literacy, creative design, and logical reasoning.',
+    fullDescription: 'Our STEAM Education Program is woven into the Montessori curriculum to prepare children for the future. Through inquiry-based learning, children explore Science (experiments and nature), Technology (digital literacy and coding basics), Engineering (building and problem-solving), Arts (creative expression and cultural heritage), and Mathematics (Montessori materials and logical reasoning). Each pillar is designed to spark curiosity, build critical thinking, and nurture creativity.',
+    objectives: [
+      'Science — Hands-on experiments, nature exploration, and scientific discovery',
+      'Technology — Digital literacy, coding basics, and educational technology integration',
+      'Engineering — Building projects, problem-solving, and creative design thinking',
+      'Arts — Creative expression through music, visual arts, and cultural heritage',
+      'Mathematics — Montessori math materials, patterns, and logical reasoning exercises',
+      'Cross-disciplinary projects that combine multiple STEAM pillars'
+    ],
+    status: 'Active',
+    startDate: 'January 2023',
+    endDate: 'Ongoing',
+    location: 'Accra, Ghana',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/file_0000000017047243ad6561c827db183e_mtyr0f.png',
+    gallery: [
+      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/file_0000000017047243ad6561c827db183e_mtyr0f.png',
+      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_000000001c0471f4a07b9cc523e96887_s3amk7.png',
+      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499476/file_00000000545071f4924dd6d3f1b215e8_v6oqgi.png'
+    ],
+    featured: true,
+    impact: {
+      patients: 120,
+      partners: 5,
+      communities: 6,
+      reach: 'School-wide'
     }
   }
 ];
@@ -267,7 +309,7 @@ export const events: Event[] = [
     location: 'The Lys Foundation School, Accra',
     type: 'Open Day',
     description: 'Tour the campus, meet our Montessori teachers, and learn how your child or sponsored pupil could join our growing learning community.',
-    image: 'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png',
     registrationLink: '/events/open-day-2026/register',
     featured: true
   },
@@ -279,7 +321,7 @@ export const events: Event[] = [
     location: 'Lys Foundation Community Hall, Accra',
     type: 'Workshop',
     description: 'A practical workshop on child hygiene, nutrition, and basic vocational skills — designed to equip single mothers to care for their families.',
-    image: 'https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_00000000498c71f4818bcbc1c815fddc_aqktan.png',
     registrationLink: '/events/mother-workshop-2026/register',
     featured: true
   },
@@ -291,7 +333,7 @@ export const events: Event[] = [
     location: 'The Lys Foundation School, Accra',
     type: 'School Event',
     description: 'Celebrating the academic, character, and creative achievements of our pupils across all six Montessori disciplines.',
-    image: 'https://images.pexels.com/photos/8473553/pexels-photo-8473553.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499483/file_00000000861872438a811f0d6c3b3948_xidrzq.png',
     registrationLink: '/events/speech-day-2026/register',
     featured: true
   },
@@ -509,15 +551,15 @@ export const patientStories: PatientStory[] = [
     age: 7,
     condition: 'Lys Foundation Pupil — Class 2',
     location: 'Nima, Accra',
-    image: 'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png',
     story: 'Akosua is being raised by her grandmother — a market trader — after losing both parents. When she joined our satellite centre, she could not read or write. Through our Montessori Language area and daily meals, she now reads simple sentences, leads tidy-up time, and dreams of becoming a teacher.',
     outcome: 'Akosua is reading independently, leads classroom routines, and was awarded our 2025 "Joy of Learning" prize.',
     treatment: 'Full Montessori curriculum + daily meals + grooming routine',
     fundsRaised: 1200,
     fundsNeeded: 1200,
     status: 'Recovered',
-    beforeImage: 'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=800',
-    afterImage: 'https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=800',
+    beforeImage: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png',
+    afterImage: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/file_0000000017047243ad6561c827db183e_mtyr0f.png',
     recoveryTimeline: [
       { date: 'Sep 2024', milestone: 'Joined satellite centre — non-reader' },
       { date: 'Jan 2025', milestone: 'Mastered phonics with Montessori sandpaper letters' },
@@ -533,7 +575,7 @@ export const patientStories: PatientStory[] = [
     age: 9,
     condition: 'Lys Foundation Pupil — Class 4',
     location: 'Madina, Accra',
-    image: 'https://images.pexels.com/photos/8473553/pexels-photo-8473553.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499483/file_00000000861872438a811f0d6c3b3948_xidrzq.png',
     story: 'Kwabena had dropped out of two schools because his mother — a single parent selling sachet water — could not keep up with fees and uniforms. At Lys, his confidence has bloomed through our STEAM and Cultural disciplines. He now leads science demonstrations for younger pupils.',
     outcome: 'Top of his class in Math, peer mentor in STEAM activities, and a regular reader at our Friday Cultural assembly.',
     treatment: 'Full Montessori curriculum + STEAM mentorship + uniform sponsorship',
@@ -555,7 +597,7 @@ export const patientStories: PatientStory[] = [
     age: 32,
     condition: 'Mother in Empowerment Program',
     location: 'Adenta, Accra',
-    image: 'https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_00000000498c71f4818bcbc1c815fddc_aqktan.png',
     story: 'Ama is a single mother of three whose children attend the Lys Foundation School. Through our Mother Empowerment Program she trained in tailoring and basic financial literacy. Today she runs a small dressmaking business serving our school families and beyond.',
     outcome: 'Ama runs a self-sustaining tailoring business and mentors other single mothers in our peer-support network.',
     treatment: 'Vocational training + peer-support + business mentoring',
@@ -571,7 +613,7 @@ export const patientStories: PatientStory[] = [
     age: 5,
     condition: 'Lys Foundation Pupil — Nursery',
     location: 'Nima, Accra',
-    image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499482/file_0000000074047246a49f814865a4f0bc_ysaxea.png',
     story: 'Yaw arrived at our nursery underweight and rarely smiling. After a term of daily breakfast, lunch, multivitamins, and the warmth of our Practical Life activities, he is a vibrant, curious learner who runs to school every morning.',
     outcome: 'Healthy weight gain, strong attendance, and visible joy — Yaw is now one of our most engaged Practical Life pupils.',
     treatment: 'Daily meals + multivitamins + Practical Life routine + grooming',
@@ -683,3 +725,73 @@ export const trustIndicators = {
   barMemberships: [],
   awards: ['Educational Equity Champion 2024', 'Mother Empowerment Recognition 2023']
 };
+
+// Gallery Data
+export const galleryCategories = [
+  'Montessori Classroom',
+  'STEAM Education',
+  'Community Events',
+  'Student Activities',
+  'Mother Empowerment',
+  'Satellite Learning'
+];
+
+export const galleryImages: GalleryImage[] = [
+  {
+    id: 1,
+    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png',
+    caption: 'Children engaged in Montessori learning activities',
+    category: 'Montessori Classroom',
+    date: '2024-01-15'
+  },
+  {
+    id: 2,
+    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/file_0000000017047243ad6561c827db183e_mtyr0f.png',
+    caption: 'STEAM education - Science experiments in action',
+    category: 'STEAM Education',
+    date: '2024-02-10'
+  },
+  {
+    id: 3,
+    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499483/file_00000000861872438a811f0d6c3b3948_xidrzq.png',
+    caption: 'Community gathering and celebration',
+    category: 'Community Events',
+    date: '2024-03-05'
+  },
+  {
+    id: 4,
+    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499482/file_0000000074047246a49f814865a4f0bc_ysaxea.png',
+    caption: 'Students collaborating on creative projects',
+    category: 'Student Activities',
+    date: '2024-03-20'
+  },
+  {
+    id: 5,
+    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_00000000498c71f4818bcbc1c815fddc_aqktan.png',
+    caption: 'Mother empowerment workshop session',
+    category: 'Mother Empowerment',
+    date: '2024-04-12'
+  },
+  {
+    id: 6,
+    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_000000001c0471f4a07b9cc523e96887_s3amk7.png',
+    caption: 'Satellite learning centre in rural community',
+    category: 'Satellite Learning',
+    date: '2024-05-08'
+  },
+  {
+    id: 7,
+    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_0000000058e471f48d9627ee6cc2ce00_oscrsn.png',
+    caption: 'Technology integration in early childhood education',
+    category: 'STEAM Education',
+    date: '2024-06-15'
+  },
+  {
+    id: 8,
+    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499476/file_00000000545071f4924dd6d3f1b215e8_v6oqgi.png',
+    caption: 'Art and creativity session',
+    category: 'STEAM Education',
+    date: '2024-07-20'
+  }
+];
+

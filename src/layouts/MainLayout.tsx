@@ -33,7 +33,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         {showScrollTop && (
           <motion.button
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 w-12 h-12 bg-accent rounded-full flex items-center justify-center text-primary-dark shadow-lg hover:bg-accent-light transition-all duration-300 z-50"
+            className="fixed bottom-8 right-8 w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white shadow-lg hover:bg-primary transition-all duration-300 z-50"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}

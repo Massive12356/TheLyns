@@ -101,7 +101,7 @@ const ProjectsPage = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-accent text-primary-dark text-xs font-semibold rounded-full">
+                      <span className="px-3 py-1 bg-accent text-white text-xs font-semibold rounded-full">
                         {project.category}
                       </span>
                     </div>
@@ -173,7 +173,7 @@ const ProjectsPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/partners"
-                className="inline-flex items-center justify-center px-8 py-4 bg-accent text-primary-dark font-semibold rounded-full hover:bg-accent-light transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white font-semibold rounded-full hover:bg-black transition-all duration-300"
               >
                 Become a Partner
                 <ArrowRight className="ml-2 w-5 h-5" />

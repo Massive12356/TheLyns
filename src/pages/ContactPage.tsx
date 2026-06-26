@@ -118,7 +118,7 @@ const ContactPage = () => {
           </div>
         </section>
 
-        {/* Main Content - Form & Map */}
+        {/* Main Content - Form & Info */}
         <section className="py-16 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -132,7 +132,7 @@ const ContactPage = () => {
                 <ContactForm />
               </motion.div>
 
-              {/* Map & Additional Info */}
+              {/* Additional Info */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -140,27 +140,6 @@ const ContactPage = () => {
                 viewport={{ once: true }}
                 className="space-y-8"
               >
-                {/* Map */}
-                <div id="map" className="bg-white rounded-2xl overflow-hidden shadow-lg">
-                  <div className="p-6 border-b border-gray-100">
-                    <h3 className="text-xl font-display font-semibold text-primary">Our Location</h3>
-                    <p className="text-secondary text-sm mt-1">Accra, Ghana - West Africa</p>
-                  </div>
-                  <div className="h-80 bg-gray-100">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.0123456789!2d-0.1870!3d5.6037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzYnMTMuMyJOIDDCsDExJzEzLjIiVw!5e0!3m2!1sen!2sgh!4v1234567890"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="The Lys Foundation Location"
-                      className="grayscale hover:grayscale-0 transition-all duration-500"
-                    />
-                  </div>
-                </div>
-
                 {/* Connect With Us - Light Design */}
                 <div className="bg-white rounded-3xl p-8 border-2 border-accent/20 shadow-xl">
                   <h3 className="text-xl font-display font-semibold text-primary mb-4">Connect With Us</h3>
@@ -199,52 +178,69 @@ const ContactPage = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* FAQ Section */}
+                <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-lg">
+                  <h3 className="text-xl font-display font-semibold text-primary mb-4">Frequently Asked Questions</h3>
+                  <div className="space-y-4">
+                    {[
+                      {
+                        q: 'How can I volunteer with The Lys Foundation?',
+                        a: 'You can volunteer by filling out the volunteer registration form on our "Get Involved" page. We welcome professionals from all backgrounds who are passionate about sustainable development.'
+                      },
+                      {
+                        q: 'How do I partner with The Lys Foundation?',
+                        a: 'Organizations interested in partnering can fill out the partnership inquiry form on our Partners page. We collaborate with academic institutions, corporations, NGOs, and government agencies.'
+                      },
+                      {
+                        q: 'How can I donate to support your work?',
+                        a: 'You can donate via bank transfer or Mobile Money. Visit our Donate page for detailed payment information. All donations go directly to supporting our training programs and initiatives.'
+                      },
+                      {
+                        q: 'How do I register for your events?',
+                        a: 'Event registration can be done through the Events page. Simply click on the event you\'re interested in and follow the registration link.'
+                      }
+                    ].map((faq, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="bg-background rounded-xl p-4"
+                      >
+                        <h4 className="font-display font-semibold text-primary mb-1 text-sm">{faq.q}</h4>
+                        <p className="text-secondary text-xs">{faq.a}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <span className="text-accent font-semibold text-sm uppercase tracking-wider">FAQ</span>
-              <h2 className="text-3xl font-display font-bold text-primary mt-2">
-                Frequently Asked Questions
-              </h2>
-            </div>
-
-            <div className="space-y-4">
-              {[
-                {
-                  q: 'How can I volunteer with The Lys Foundation?',
-                  a: 'You can volunteer by filling out the volunteer registration form on our "Get Involved" page. We welcome professionals from all backgrounds who are passionate about sustainable development.'
-                },
-                {
-                  q: 'How do I partner with The Lys Foundation?',
-                  a: 'Organizations interested in partnering can fill out the partnership inquiry form on our Partners page. We collaborate with academic institutions, corporations, NGOs, and government agencies.'
-                },
-                {
-                  q: 'How can I donate to support your work?',
-                  a: 'You can donate via bank transfer or Mobile Money. Visit our Donate page for detailed payment information. All donations go directly to supporting our training programs and initiatives.'
-                },
-                {
-                  q: 'How do I register for your events?',
-                  a: 'Event registration can be done through the Events page. Simply click on the event you\'re interested in and follow the registration link.'
-                }
-              ].map((faq, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-background rounded-2xl p-6"
-                >
-                  <h3 className="font-display font-semibold text-primary mb-2">{faq.q}</h3>
-                  <p className="text-secondary">{faq.a}</p>
-                </motion.div>
-              ))}
+        {/* Full Width Map */}
+        <section className="py-0">
+          <div className="w-full">
+            <div className="bg-white">
+              <div className="p-8 max-w-7xl mx-auto">
+                <h3 className="text-2xl font-display font-semibold text-primary">Our Location</h3>
+                <p className="text-secondary mt-2">{ngoInfo.address}</p>
+              </div>
+              <div className="h-96 w-full">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.0123456789!2d-0.1870!3d5.6037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzYnMTMuMyJOIDDCsDExJzEzLjIiVw!5e0!3m2!1sen!2sgh!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="The Lys Foundation Location"
+                  className="grayscale hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
             </div>
           </div>
         </section>

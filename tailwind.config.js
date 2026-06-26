@@ -39,6 +39,7 @@ export default {
         'fade-in': 'fadeIn 0.5s ease-out',
         'slide-up': 'slideUp 0.6s ease-out',
         'float': 'float 6s ease-in-out infinite',
+        'alternate-theme': 'alternateTheme 4s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -52,6 +53,11 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
+        },
+        alternateTheme: {
+          '0%, 25%': { backgroundColor: '#1A1A1A', color: '#FFFFFF' },
+          '50%, 75%': { backgroundColor: '#F7941D', color: '#1A1A1A' },
+          '100%': { backgroundColor: '#1A1A1A', color: '#FFFFFF' },
         },
       },
     },

@@ -64,7 +64,7 @@ const DonatePage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-2 bg-accent/20 text-accent text-sm font-medium rounded-full mb-6"
+              className="inline-block px-4 py-2 bg-white/20 text-white text-sm font-medium rounded-full mb-6 backdrop-blur-sm border border-white/20"
             >
               <Heart className="w-4 h-4 inline mr-2" />
               Support Our Mission
@@ -224,7 +224,7 @@ const DonatePage = () => {
               <button
                 onClick={handlePaystackPayment}
                 disabled={isProcessing}
-                className="w-full py-4 bg-accent text-primary-dark font-bold text-lg rounded-xl hover:bg-accent-light transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full py-4 bg-secondary text-white font-bold text-lg rounded-xl hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isProcessing ? (
                   <>

@@ -91,7 +91,7 @@ const AboutPage = () => {
               >
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <img
-                    src="https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_0000000058e471f48d9627ee6cc2ce00_oscrsn.png"
                     alt="Lys Foundation pupils learning"
                     className="w-full h-auto"
                   />

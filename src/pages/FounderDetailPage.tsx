@@ -59,7 +59,7 @@ const FounderDetailPage = () => {
             >
               <Link 
                 to="/about" 
-                className="inline-flex items-center text-white/70 hover:text-accent transition-colors mb-6"
+                className="inline-flex items-center text-black/70 hover:text-black transition-colors mb-6"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to About Us
@@ -67,7 +67,7 @@ const FounderDetailPage = () => {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
                 {founder.name}
               </h1>
-              <p className="text-xl text-accent font-medium">
+              <p className="text-xl text-black/80 font-bold">
                 {founder.role}
               </p>
             </motion.div>
@@ -175,9 +175,11 @@ const FounderDetailPage = () => {
                     <Lightbulb className="w-6 h-6 mr-3 text-accent" />
                     About
                   </h2>
-                  <p className="text-secondary leading-relaxed text-lg">
-                    {founder.bio}
-                  </p>
+                  <div className="space-y-4 text-secondary leading-relaxed text-lg">
+                    {founder.bio.split('\n').map((paragraph, index) => (
+                      <p key={index}>{paragraph.trim()}</p>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Achievements Section */}
@@ -208,8 +210,8 @@ const FounderDetailPage = () => {
 
                 {/* Honors & Awards Section */}
                 {founder.honors && founder.honors.length > 0 && (
-                  <div className="bg-primary rounded-3xl p-8 shadow-lg text-white">
-                    <h2 className="text-2xl font-display font-bold mb-6 flex items-center">
+                  <div className="bg-white rounded-3xl p-8 shadow-lg">
+                    <h2 className="text-2xl font-display font-bold text-primary mb-6 flex items-center">
                       <Award className="w-6 h-6 mr-3 text-accent" />
                       Honors & Awards
                     </h2>
@@ -220,12 +222,12 @@ const FounderDetailPage = () => {
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: index * 0.1 }}
-                          className="flex items-center gap-4 p-4 bg-white/10 rounded-xl"
+                          className="flex items-center gap-4 p-4 bg-secondary/5 rounded-xl border border-secondary/10"
                         >
-                          <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center flex-shrink-0">
-                            <Award className="w-5 h-5 text-primary-dark" />
+                          <div className="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <Award className="w-5 h-5 text-accent" />
                           </div>
-                          <p className="text-white/90 font-medium">{honor}</p>
+                          <p className="text-accent font-semibold">{honor}</p>
                         </motion.div>
                       ))}
                     </div>

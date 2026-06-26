@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Heart, Users, Activity, MapPin, ChevronLeft, ChevronRight, CheckCircle2, Stethoscope, HandHeart } from 'lucide-react';
+import { ArrowRight, Heart, Users, Activity, MapPin, ChevronLeft, ChevronRight, CheckCircle2, Stethoscope, HandHeart, Camera, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import { ngoInfo, projects, patientStories } from '../data/mockData';
 
@@ -43,13 +43,13 @@ const HomePage = () => {
       title: "Quality Education for Every Child in Ghana",
       highlight: "Every Child",
       description: "The Lys Foundation provides Montessori education to underprivileged children — mostly orphans and children of single mothers — right here in Ghana.",
-      image: "https://res.cloudinary.com/dsk62cvbs/image/upload/v1780180123/Picture2_alhm0j.png",
+      image: "https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png",
     },
     {
-      title: "Empowering Mothers, Transforming Families",
-      highlight: "Empowering",
-      description: "Through our Mother Empowerment Program, we equip single mothers with the skills, training, and support they need to care for their children with dignity.",
-      image: "https://res.cloudinary.com/dsk62cvbs/image/upload/v1780180330/Picture4_bwimom.jpg",
+      title: "Transforming Lives Through Learning",
+      highlight: "Transforming",
+      description: "Quality education, daily nourishment, and family support — empowering Ghana's next generation to dream bigger and achieve more.",
+      image: "https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499483/file_00000000861872438a811f0d6c3b3948_xidrzq.png",
     },
   ];
 
@@ -73,41 +73,33 @@ const HomePage = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Hero Section - Editorial Split Design */}
-        <section className="relative min-h-screen bg-gradient-to-br from-primary-dark via-primary to-primary-light overflow-hidden">
-          {/* Layered shade blobs for depth */}
-          <div className="absolute -top-32 -left-24 w-[520px] h-[520px] rounded-full bg-primary-dark/50 blur-3xl pointer-events-none" />
-          <div className="absolute top-1/4 right-1/3 w-80 h-80 rounded-full bg-primary-light/40 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -right-16 w-[460px] h-[460px] rounded-full bg-accent-dark/40 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-1/4 left-1/4 w-72 h-72 rounded-full bg-accent/25 blur-3xl pointer-events-none" />
-          {/* Subtle vignette to deepen edges */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.18)_100%)] pointer-events-none" />
-
-          {/* MOBILE: full-bleed background image with dark overlay */}
-          <div className="absolute inset-0 lg:hidden">
+        {/* Hero Section - Full Background Design */}
+        <section className="relative min-h-screen overflow-hidden">
+          {/* Background Images */}
+          <div className="absolute inset-0">
             {heroSlides.map((slide, index) => (
               <div
-                key={`m-${index}`}
+                key={`bg-${index}`}
                 className={`absolute inset-0 transition-opacity duration-1000 ${
                   index === currentSlide ? 'opacity-100' : 'opacity-0'
                 }`}
               >
                 <div
-                  className="absolute inset-0 bg-cover bg-center"
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{ backgroundImage: `url(${slide.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary/85 to-primary/55" />
-                <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/85 via-primary-dark/40 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/40 to-transparent" />
               </div>
             ))}
           </div>
 
-          {/* Main split grid */}
-          <div className="relative z-10 grid lg:grid-cols-12 min-h-screen">
-            {/* Left Content Panel */}
-            <div className="lg:col-span-5 flex items-center px-6 sm:px-10 lg:px-16 pt-32 pb-20 lg:py-24">
-              <div className="max-w-xl w-full">
+          {/* Light Overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/15 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/15" />
+
+          {/* Content */}
+          <div className="relative z-10 min-h-screen flex items-center">
+            <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-32 lg:py-24 w-full">
+              <div className="max-w-2xl">
                 {/* Eyebrow Tag */}
                 <motion.div
                   className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8"
@@ -133,7 +125,7 @@ const HomePage = () => {
                   transition={{ duration: 0.7, ease: "easeOut" }}
                 >
                   {heroSlides[currentSlide].title.split(heroSlides[currentSlide].highlight)[0]}
-                  <span className="relative inline-block text-secondary-dark">
+                  <span className="relative inline-block text-primary">
                     {heroSlides[currentSlide].highlight}
                     <motion.svg
                       className="absolute -bottom-2 left-0 w-full"
@@ -145,7 +137,7 @@ const HomePage = () => {
                       transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
                       style={{ originX: 0 }}
                     >
-                      <path d="M0,8 Q50,0 100,8 T200,8" stroke="#FFFFFF" strokeWidth="6" fill="none" />
+                      <path d="M0,8 Q50,0 100,8 T200,8" stroke="#F7941D" strokeWidth="6" fill="none" />
                     </motion.svg>
                   </span>
                   {heroSlides[currentSlide].title.split(heroSlides[currentSlide].highlight)[1]}
@@ -154,7 +146,7 @@ const HomePage = () => {
                 {/* Description */}
                 <motion.p
                   key={`desc-${currentSlide}`}
-                  className="text-lg text-white/75 mb-10 leading-relaxed max-w-lg"
+                  className="text-lg text-white/90 mb-10 leading-relaxed max-w-lg font-medium"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
@@ -188,149 +180,72 @@ const HomePage = () => {
 
                 {/* Mini Stats Strip */}
                 <motion.div
-                  className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10"
+                  className="inline-flex gap-6 px-6 py-4 rounded-2xl bg-black/40 backdrop-blur-md border border-white/15"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
                 >
                   <div>
                     <div className="text-3xl font-display font-bold text-white">
-                      120<span className="text-accent">+</span>
+                      120<span className="text-primary">+</span>
                     </div>
-                    <div className="text-white/55 text-[11px] uppercase tracking-[0.15em] mt-2">
+                    <div className="text-white/80 text-[11px] uppercase tracking-[0.15em] mt-1">
                       Children Supported
                     </div>
                   </div>
+                  <div className="w-px bg-white/15" />
                   <div>
                     <div className="text-3xl font-display font-bold text-white">
-                      6<span className="text-accent">+</span>
+                      6<span className="text-primary">+</span>
                     </div>
-                    <div className="text-white/55 text-[11px] uppercase tracking-[0.15em] mt-2">
+                    <div className="text-white/80 text-[11px] uppercase tracking-[0.15em] mt-1">
                       Communities
                     </div>
                   </div>
+                  <div className="w-px bg-white/15" />
                   <div>
                     <div className="text-3xl font-display font-bold text-white">
-                      85<span className="text-accent">%</span>
+                      85<span className="text-primary">%</span>
                     </div>
-                    <div className="text-white/55 text-[11px] uppercase tracking-[0.15em] mt-2">
+                    <div className="text-white/80 text-[11px] uppercase tracking-[0.15em] mt-1">
                       To Pupil Care
                     </div>
                   </div>
                 </motion.div>
               </div>
             </div>
-
-            {/* Right Image Panel (desktop only) */}
-            <div className="hidden lg:block lg:col-span-7 relative">
-              {heroSlides.map((slide, index) => (
-                <div
-                  key={`d-${index}`}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${
-                    index === currentSlide ? 'opacity-100' : 'opacity-0'
-                  }`}
-                >
-                  <div
-                    className="absolute inset-6 bg-cover bg-center rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl"
-                    style={{ backgroundImage: `url(${slide.image})` }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-transparent to-transparent" />
-                  </div>
-                </div>
-              ))}
-
-              {/* Slide Counter (top-right) */}
-              <motion.div
-                className="absolute top-12 right-16 z-20 text-right px-4 py-3 rounded-2xl bg-black/40 backdrop-blur-md border border-white/15"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <div className="text-white font-display text-5xl font-bold leading-none drop-shadow-lg">
-                  0{currentSlide + 1}
-                </div>
-                <div className="text-white/80 text-xs tracking-[0.25em] mt-2 font-semibold">
-                  / 0{heroSlides.length}
-                </div>
-              </motion.div>
-
-              {/* Floating Quote Card (bottom-left, overlaps content panel) */}
-              <motion.div
-                className="absolute bottom-14 left-0 -translate-x-1/4 max-w-sm z-20"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                <div className="bg-white rounded-2xl p-6 shadow-2xl border border-black/5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0">
-                      <Heart className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-primary font-display text-base leading-snug italic">
-                        “Teach a child to fish — and you feed a family for a lifetime.”
-                      </p>
-                      <p className="text-secondary text-xs mt-2 font-semibold uppercase tracking-wider">
-                        — Our Guiding Belief
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Carousel Controls (bottom-right) */}
-              <motion.div
-                className="absolute bottom-14 right-16 z-20 flex items-center gap-5"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                <div className="flex gap-2">
-                  {heroSlides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentSlide(index)}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        index === currentSlide
-                          ? 'bg-accent w-8'
-                          : 'bg-white/40 hover:bg-white/60 w-2'
-                      }`}
-                      aria-label={`Go to slide ${index + 1}`}
-                    />
-                  ))}
-                </div>
-                <div className="flex gap-2">
-                  <button
-                    onClick={prevSlide}
-                    className="w-11 h-11 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl flex items-center justify-center text-white hover:bg-accent hover:text-black hover:border-accent transition-all duration-300"
-                    aria-label="Previous slide"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={nextSlide}
-                    className="w-11 h-11 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl flex items-center justify-center text-white hover:bg-accent hover:text-black hover:border-accent transition-all duration-300"
-                    aria-label="Next slide"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </div>
-              </motion.div>
-            </div>
           </div>
-
-          {/* Mobile carousel controls (bottom of section) */}
-          <div className="lg:hidden absolute bottom-8 left-6 right-6 z-20 flex items-center justify-between">
+          
+          {/* Slide Counter (top-right) */}
+          <motion.div
+            className="absolute top-12 right-12 lg:right-16 z-20 text-right px-4 py-3 rounded-2xl bg-black/40 backdrop-blur-md border border-white/15"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="text-white font-display text-5xl font-bold leading-none drop-shadow-lg">
+              0{currentSlide + 1}
+            </div>
+            <div className="text-white/80 text-xs tracking-[0.25em] mt-2 font-semibold">
+              / 0{heroSlides.length}
+            </div>
+          </motion.div>
+          
+          {/* Carousel Controls (bottom-right) */}
+          <motion.div
+            className="absolute bottom-12 right-12 lg:bottom-14 lg:right-16 z-20 flex items-center gap-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
             <div className="flex gap-2">
               {heroSlides.map((_, index) => (
                 <button
-                  key={`mdot-${index}`}
+                  key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     index === currentSlide
-                      ? 'bg-accent w-8'
+                      ? 'bg-primary w-8'
                       : 'bg-white/40 hover:bg-white/60 w-2'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
@@ -340,14 +255,48 @@ const HomePage = () => {
             <div className="flex gap-2">
               <button
                 onClick={prevSlide}
-                className="w-10 h-10 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl flex items-center justify-center text-white"
+                className="w-11 h-11 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl flex items-center justify-center text-white hover:bg-primary hover:text-black hover:border-primary transition-all duration-300"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={nextSlide}
-                className="w-10 h-10 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl flex items-center justify-center text-white"
+                className="w-11 h-11 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl flex items-center justify-center text-white hover:bg-primary hover:text-black hover:border-primary transition-all duration-300"
+                aria-label="Next slide"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </motion.div>
+          
+          {/* Mobile carousel controls (bottom of section) */}
+          <div className="lg:hidden absolute bottom-8 left-6 right-6 z-20 flex items-center justify-between">
+            <div className="flex gap-2">
+              {heroSlides.map((_, index) => (
+                <button
+                  key={`mdot-${index}`}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? 'bg-primary w-8'
+                      : 'bg-white/40 hover:bg-white/60 w-2'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={prevSlide}
+                className="w-10 h-10 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl flex items-center justify-center text-white hover:bg-primary hover:text-black transition-all duration-300"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="w-10 h-10 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl flex items-center justify-center text-white hover:bg-primary hover:text-black transition-all duration-300"
                 aria-label="Next slide"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -554,6 +503,92 @@ const HomePage = () => {
                 className="inline-flex items-center px-8 py-3.5 bg-primary text-black font-semibold rounded-full hover:bg-primary-light transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5"
               >
                 View All Programs
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* STEAM Education Section */}
+        <section className="py-20 bg-gradient-to-br from-secondary to-black text-white overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <span className="inline-block px-4 py-2 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-4">
+                Innovation in Learning
+              </span>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+                STEAM Education Program
+              </h2>
+              <p className="text-white/70 max-w-2xl mx-auto text-lg">
+                Integrating Science, Technology, Engineering, Arts, and Mathematics into our Montessori curriculum to prepare children for the future.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
+              {[
+                {
+                  letter: 'S',
+                  title: 'Science',
+                  description: 'Hands-on experiments, nature exploration, and scientific discovery',
+                  icon: '🔬',
+                  color: 'from-blue-500 to-blue-600'
+                },
+                {
+                  letter: 'T',
+                  title: 'Technology',
+                  description: 'Digital literacy, coding basics, and educational technology',
+                  icon: '💻',
+                  color: 'from-purple-500 to-purple-600'
+                },
+                {
+                  letter: 'E',
+                  title: 'Engineering',
+                  description: 'Building, problem-solving, and creative design thinking',
+                  icon: '⚙️',
+                  color: 'from-orange-500 to-orange-600'
+                },
+                {
+                  letter: 'A',
+                  title: 'Arts',
+                  description: 'Creative expression, music, visual arts, and cultural heritage',
+                  icon: '🎨',
+                  color: 'from-pink-500 to-pink-600'
+                },
+                {
+                  letter: 'M',
+                  title: 'Mathematics',
+                  description: 'Montessori math materials, patterns, and logical reasoning',
+                  icon: '📐',
+                  color: 'from-green-500 to-green-600'
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.letter}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-2"
+                >
+                  <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {item.icon}
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-display font-bold text-primary mb-2">{item.letter}</div>
+                    <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                    <p className="text-white/60 text-sm">{item.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Link
+                to="/steam"
+                className="inline-flex items-center px-8 py-3.5 bg-primary text-black font-semibold rounded-full hover:bg-primary-light transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5"
+              >
+                <Sparkles className="mr-2 w-5 h-5" />
+                Explore STEAM Program
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </div>

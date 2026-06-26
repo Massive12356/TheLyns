@@ -4,17 +4,12 @@ import { ngoInfo, projects } from '../data/mockData';
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
-    { name: 'Our Impact', path: '/impact' },
     { name: 'Programs', path: '/projects' },
-    { name: 'Success Stories', path: '/success-stories' },
+    { name: 'Our Impact', path: '/impact' },
     { name: 'Volunteer', path: '/volunteer' },
-    { name: 'Partners', path: '/partners' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'FAQ', path: '/faq' },
     { name: 'Donate', path: '/donate' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const legalLinks = [
@@ -30,11 +25,13 @@ const Footer = () => {
           {/* Organization Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1780176453/Picture1_w63q9q.png" 
-                alt="The Lys Foundation"
-                className="h-16 w-auto object-contain rounded-xl"
-              />
+              <div className="bg-white rounded-xl p-2">
+                <img 
+                  src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/IMG_20260623_175709_771_vwkkgq.png"
+                  alt="The Lys Foundation"
+                  className="h-14 w-auto object-contain"
+                />
+              </div>
             </div>
             <p className="text-white/70 mb-6 leading-relaxed text-sm">
               {ngoInfo.description}
@@ -137,8 +134,8 @@ const Footer = () => {
               </li>
             </ul>
 
-            <div className="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">
-              <p className="text-white/60 text-xs mb-2">Registration</p>
+            <div className="mt-6 p-4 bg-primary/10 rounded-xl border border-primary/20">
+              <p className="text-primary-light text-xs mb-2">Registration</p>
               <p className="text-white text-sm font-medium">{ngoInfo.registrationNumber}</p>
             </div>
           </div>

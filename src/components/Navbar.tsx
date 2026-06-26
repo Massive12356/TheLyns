@@ -25,7 +25,7 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Our Impact', path: '/impact' },
     { name: 'Programs', path: '/projects' },
-    { name: 'Blog', path: '/blog' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Volunteer', path: '/volunteer' },
     { name: 'Partners', path: '/partners' },
     { name: 'Contact', path: '/contact' },
@@ -45,7 +45,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 flex-shrink-0 group">
             <img 
-              src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1780176453/Picture1_w63q9q.png" 
+              src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/IMG_20260623_175709_771_vwkkgq.png"
               alt="The Lys Foundation"
               className="h-14 md:h-16 w-auto object-contain"
             />
@@ -72,7 +72,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-3">
             <Link
               to="/donate"
-              className="inline-flex items-center px-6 py-2.5 text-sm font-semibold rounded-full border-2 transition-all duration-300 animate-alternate-theme hover:scale-105"
+              className="inline-flex items-center px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-500 hover:scale-105 animate-alternate-theme"
             >
               <Heart className="w-4 h-4 mr-2" />
               Donate

@@ -30,6 +30,8 @@ import FounderDetailPage from './pages/FounderDetailPage';
 import ImpactPage from './pages/ImpactPage';
 import SuccessStoriesPage from './pages/SuccessStoriesPage';
 import FAQPage from './pages/FAQPage';
+import GalleryPage from './pages/GalleryPage';
+import STEAMPage from './pages/STEAMPage';
 
 // Public routes with MainLayout (Navbar + Footer)
 const PublicRoutes = () => {
@@ -54,6 +56,8 @@ const PublicRoutes = () => {
           <Route path="/blog/:id" element={<BlogDetailPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/steam" element={<STEAMPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-use" element={<TermsOfUsePage />} />
           <Route path="/cookie-policy" element={<CookiePolicyPage />} />

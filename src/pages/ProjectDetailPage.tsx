@@ -46,10 +46,10 @@ const ProjectDetailPage = () => {
                 Back to Projects
               </Link>
               <div className="flex flex-wrap gap-3 mb-4">
-                <span className="px-4 py-1 bg-accent text-primary-dark text-sm font-semibold rounded-full">
+                <span className="px-4 py-1 bg-secondary text-primary text-sm font-semibold rounded-full">
                   {project.category}
                 </span>
-                <span className="px-4 py-1 bg-white/20 backdrop-blur-sm text-white text-sm rounded-full">
+                <span className="px-4 py-1 bg-primary text-secondary text-sm font-semibold rounded-full">
                   {project.type}
                 </span>
               </div>

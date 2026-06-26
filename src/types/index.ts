@@ -335,3 +335,11 @@ export interface ConsultationFormData {
   preferredTime: string;
   message: string;
 }
+
+export interface GalleryImage {
+  id: number;
+  url: string;
+  caption: string;
+  category: string;
+  date: string;
+}
