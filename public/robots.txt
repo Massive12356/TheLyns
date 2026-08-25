@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /panel
+Disallow: /panel/
+Disallow: /secure-access
+Disallow: /secure-access/
+
+Sitemap: https://lysfoundation.org/sitemap.xml

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Scale, Eye, EyeOff, Lock, Mail } from 'lucide-react';
 
 const AdminLoginPage = () => {
@@ -38,6 +39,10 @@ const AdminLoginPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary via-primary to-primary-dark flex items-center justify-center p-4">
+      <Helmet>
+        <title>Secure Access | The Lys Foundation</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{

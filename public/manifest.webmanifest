@@ -1,0 +1,22 @@
+{
+  "name": "The Lys Foundation",
+  "short_name": "Lys Foundation",
+  "description": "Quality Montessori education for underprivileged children in Ghana.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a2744",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dsk62cvbs/image/upload/v1780176453/Picture1_w63q9q.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/dsk62cvbs/image/upload/v1780176453/Picture1_w63q9q.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

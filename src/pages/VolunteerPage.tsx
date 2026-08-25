@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Users, Heart, Lightbulb, Clock, CheckCircle, ArrowRight, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { volunteerOpportunities } from '../data/mockData';
@@ -36,11 +35,6 @@ const VolunteerPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Volunteer With Us | The Lys Foundation</title>
-        <meta name="description" content="Join The Lys Foundation as a volunteer and help deliver quality Montessori education to underprivileged children in Ghana." />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

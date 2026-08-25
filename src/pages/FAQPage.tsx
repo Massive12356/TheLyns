@@ -1,5 +1,4 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 import { ChevronDown, MessageCircle } from 'lucide-react';
 import { faqs } from '../data/mockData';
@@ -11,13 +10,6 @@ const FAQPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>FAQ | The Lys Foundation</title>
-        <meta name="description" content="Frequently asked questions about donating, sponsoring a child, volunteering, and partnering with The Lys Foundation." />
-        <meta property="og:title" content="FAQ | The Lys Foundation" />
-        <meta property="og:description" content="Find answers to common questions about our education programs and how to get involved." />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

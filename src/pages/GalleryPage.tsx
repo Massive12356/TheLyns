@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 import { Camera, Grid, Filter } from 'lucide-react';
 import { galleryCategories, galleryImages } from '../data/mockData';
@@ -16,11 +15,6 @@ const GalleryPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Gallery | The Lys Foundation</title>
-        <meta name="description" content="Browse through our gallery of Montessori education activities, student achievements, and community impact across Ghana." />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, MapPin, Filter } from 'lucide-react';
 import { projects } from '../data/mockData';
@@ -15,11 +14,6 @@ const ProjectsPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Our Programs | The Lys Foundation</title>
-        <meta name="description" content="Explore The Lys Foundation's Montessori education programs, satellite learning centres, and mother empowerment initiatives across Ghana." />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

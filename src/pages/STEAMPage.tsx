@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Beaker, Cpu, Wrench, Palette, Calculator, Sparkles, Users, BookOpen } from 'lucide-react';
 
@@ -99,11 +98,6 @@ const STEAMPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>STEAM Education | The Lys Foundation</title>
-        <meta name="description" content="Explore our STEAM Education Program integrating Science, Technology, Engineering, Arts, and Mathematics into Montessori learning." />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

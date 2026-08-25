@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Play, ArrowRight, Calendar, MapPin, Heart } from 'lucide-react';
 import { patientStories } from '../data/mockData';
@@ -7,13 +6,6 @@ import { patientStories } from '../data/mockData';
 const SuccessStoriesPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Success Stories | The Lys Foundation</title>
-        <meta name="description" content="Read inspiring success stories from The Lys Foundation — children and mothers whose lives have been transformed through quality education and empowerment." />
-        <meta property="og:title" content="Success Stories | The Lys Foundation" />
-        <meta property="og:description" content="Real children. Real growth. Real impact." />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

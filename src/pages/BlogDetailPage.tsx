@@ -36,23 +36,12 @@ const BlogDetailPage = () => {
   // Generate full content based on the excerpt
   const generateFullContent = (post: typeof blogPost) => {
     const paragraphs = [
-      `In the ever-evolving landscape of Ghanaian law, understanding ${post.title.toLowerCase()} has become increasingly crucial for businesses and individuals alike. This comprehensive guide explores the key aspects you need to know to navigate this complex area effectively.`,
-      
-      `The legal framework surrounding ${post.category.toLowerCase()} in Ghana has undergone significant changes in recent years. These developments reflect the country's commitment to creating a more robust and transparent legal environment that serves both local and international stakeholders.`,
-      
-      `One of the most important considerations is the regulatory environment. The Ghanaian government, through various legislative instruments, has established clear guidelines that govern ${post.category.toLowerCase()} matters. Understanding these regulations is essential for compliance and risk management.`,
-      
-      `For businesses operating in Ghana, proper legal counsel is not just advisable—it's essential. The complexities of the local legal system, combined with international best practices, require expertise that only qualified legal professionals can provide. This is where working with experienced attorneys becomes invaluable.`,
-      
-      `Key considerations include documentation requirements, procedural timelines, and potential challenges that may arise during the process. Being prepared for these aspects can significantly impact the outcome of any legal matter.`,
-      
-      `Furthermore, the role of technology in modern legal practice cannot be overstated. Digital transformation has revolutionized how legal services are delivered, making processes more efficient and accessible. However, this also brings new challenges related to data protection and cybersecurity.`,
-      
-      `Looking ahead, we anticipate continued evolution in this area of law. Staying informed about these changes is crucial for anyone involved in ${post.category.toLowerCase()} matters in Ghana. Regular consultation with legal professionals ensures that you remain compliant and well-positioned to take advantage of new opportunities.`,
-      
-      `In conclusion, while the legal landscape may seem complex, with the right guidance and understanding, navigating ${post.title.toLowerCase()} becomes manageable. Whether you are a business owner, investor, or individual seeking legal clarity, investing time in understanding these matters pays dividends in the long run.`,
-      
-      `For personalized advice tailored to your specific situation, we recommend consulting with qualified legal professionals who can provide guidance based on your unique circumstances.`
+      `${post.excerpt} At The Lys Foundation School in Accra, quality education for children is not a luxury — it is the pathway out of poverty for orphans and children of single mothers.`,
+      `Montessori education is child-led. Instead of forcing memorisation, we prepare classrooms where children want to learn: practical life, sensorial work, mathematics, language, cultural studies, and STEAM. Each pupil moves at a pace that builds confidence, independence, and real understanding.`,
+      `This matters in Ghana, where too many underprivileged children never receive a strong start. The Lys Foundation (also found when people search Lyn Foundation) exists to close that gap with daily lessons, breakfast and lunch, health checks, and a community of teachers who know every child by name.`,
+      `Our ${post.category.toLowerCase()} work is part of a wider programme: satellite learning centres in underserved communities, vocational training for single mothers, and a sponsor-a-child plan that covers tuition, uniforms, meals, and learning materials.`,
+      `Families, churches, and companies can walk through this with us. Visit the school, volunteer in a classroom, partner on a satellite centre, or sponsor a child. Education is the gift that keeps feeding a lifetime — and every child in our care deserves that chance.`,
+      `If this article speaks to you, share it, donate, or contact The Lys Foundation in Accra. Together we can put more children into classrooms where they are seen, fed, taught, and prepared to thrive.`,
     ];
     return paragraphs;
   };

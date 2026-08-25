@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { MapPin, Phone, Mail, Clock, Instagram, Twitter, Facebook, Send } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
 import { ngoInfo } from '../data/mockData';
@@ -38,14 +37,6 @@ const ContactPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us | The Lys Foundation</title>
-        <meta name="description" content="Get in touch with The Lys Foundation. We'd love to hear from you about partnerships, sponsoring a child, volunteering, donations, or general inquiries." />
-        <meta name="keywords" content="contact Lys Foundation, education NGO Ghana, sponsor a child, volunteer, partner, donate" />
-        <meta property="og:title" content="Contact Us | The Lys Foundation" />
-        <meta property="og:description" content="Get in touch with The Lys Foundation. We'd love to hear from you!" />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

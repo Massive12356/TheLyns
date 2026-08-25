@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Heart, Users, Activity, MapPin, ChevronLeft, ChevronRight, CheckCircle2, Stethoscope, HandHeart, Camera, Sparkles } from 'lucide-react';
+import { ArrowRight, Heart, Users, Activity, MapPin, ChevronLeft, ChevronRight, CheckCircle2, HandHeart, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import { ngoInfo, projects, patientStories } from '../data/mockData';
 
@@ -58,15 +57,6 @@ const HomePage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>The Lys Foundation | Quality Education for Every Child in Ghana</title>
-        <meta name="description" content="The Lys Foundation provides Montessori education to underprivileged children and empowers single mothers across Ghana." />
-        <meta name="keywords" content="education NGO, Montessori, Ghana, underprivileged children, single mothers, Lys Foundation, child sponsorship" />
-        <meta property="og:title" content="The Lys Foundation | Quality Education for Every Child" />
-        <meta property="og:description" content="Montessori education and mother empowerment in Ghana." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

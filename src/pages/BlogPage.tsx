@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Calendar, Clock, User, ThumbsUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { blogPosts } from '../data/mockData';
@@ -17,14 +16,6 @@ const BlogPage = () => {
   }, []);
 
   return (
-    <>
-      <Helmet>
-        <title>Education Blog | The Lys Foundation</title>
-        <meta name="description" content="Explore Montessori education insights, child development articles, and stories of hope from The Lys Foundation in Ghana." />
-        <meta name="keywords" content="Montessori education, child development, Ghana education, mother empowerment, Lys Foundation" />
-        <meta property="og:title" content="Education Blog | The Lys Foundation" />
-        <meta property="og:description" content="Montessori education insights and stories of hope from communities across Ghana." />
-      </Helmet>
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -144,7 +135,6 @@ const BlogPage = () => {
         </div>
       </section>
     </motion.div>
-    </>
   );
 };
 

@@ -1,10 +1,15 @@
 import { PropsWithChildren, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
+import { resolvePageSEO } from '../config/seo';
 
 const MainLayout = ({ children }: PropsWithChildren) => {
+  const { pathname } = useLocation();
+  const pageSeo = resolvePageSEO(pathname);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -22,6 +27,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO page={pageSeo} />
       <Navbar />
       <main className="flex-grow pt-16">
         {children}
