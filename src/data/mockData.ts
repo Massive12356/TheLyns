@@ -97,7 +97,7 @@ With a diploma in Montessori education and a hands-on approach, she serves as Di
     socialLinks: {
       linkedin: 'https://linkedin.com/in/jemima-adamah',
       twitter: 'https://twitter.com/jemimaadamah',
-      website: 'https://lysfoundation.org'
+      website: 'https://www.thelysfoundation.org'
     }
   },
   {
@@ -133,7 +133,7 @@ She is also the co-founder of Architecture Alliance Ghana. Profiled on Metro TV 
     socialLinks: {
       linkedin: 'https://linkedin.com/in/ewurama-ocran-gbekor',
       twitter: 'https://twitter.com/ewuramaog',
-      website: 'https://lysfoundation.org'
+      website: 'https://www.thelysfoundation.org'
     }
   }
 ];

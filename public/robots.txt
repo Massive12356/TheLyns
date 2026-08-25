@@ -6,4 +6,4 @@ Disallow: /panel/
 Disallow: /secure-access
 Disallow: /secure-access/
 
-Sitemap: https://lysfoundation.org/sitemap.xml
+Sitemap: https://www.thelysfoundation.org/sitemap.xml

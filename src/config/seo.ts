@@ -2,7 +2,7 @@ import { blogPosts, events, faqs, founders, ngoInfo, projects } from '../data/mo
 
 export const SITE_URL = (
   (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_SITE_URL) ||
-  'https://lysfoundation.org'
+  'https://www.thelysfoundation.org'
 ).replace(/\/$/, '');
 
 export const SITE_NAME = 'The Lys Foundation';
