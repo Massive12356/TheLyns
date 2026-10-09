@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Heart, Copy, CheckCircle, Wallet, Building2, Smartphone, CreditCard, Shield, Zap, Gift, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
@@ -43,11 +42,6 @@ const DonatePage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Donate | The Lys Foundation</title>
-        <meta name="description" content="Support The Lys Foundation in providing Montessori education, daily meals, and mother empowerment for underprivileged families in Ghana." />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

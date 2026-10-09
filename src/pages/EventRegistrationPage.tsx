@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { 
   Calendar, 
@@ -89,12 +88,6 @@ const EventRegistrationPage = () => {
 
   if (submitted) {
     return (
-      <>
-        <Helmet>
-          <title>Registration Confirmed | {event.title}</title>
-          <meta name="description" content={`Registration confirmed for ${event.title}`} />
-        </Helmet>
-
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -155,17 +148,11 @@ const EventRegistrationPage = () => {
             </motion.div>
           </div>
         </motion.div>
-      </>
     );
   }
 
   return (
     <>
-      <Helmet>
-        <title>Register for {event.title} | The Lys Foundation</title>
-        <meta name="description" content={`Register for ${event.title}. ${event.description}`} />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

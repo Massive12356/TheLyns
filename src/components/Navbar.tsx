@@ -33,20 +33,21 @@ const Navbar = () => {
   ];
 
   return (
-    <nav 
+    <header
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-primary/10' 
           : 'bg-white/80 backdrop-blur-sm'
       }`}
     >
+    <nav aria-label="Main">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 flex-shrink-0 group">
             <img 
               src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/IMG_20260623_175709_771_vwkkgq.png"
-              alt="The Lys Foundation"
+              alt="The Lys Foundation — quality Montessori education for children in Ghana"
               className="h-14 md:h-16 w-auto object-contain"
             />
           </Link>
@@ -57,6 +58,7 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
+                aria-current={isActive(link.path) ? 'page' : undefined}
                 className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${
                   isActive(link.path)
                     ? 'text-primary bg-accent/10'
@@ -145,6 +147,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </nav>
+    </header>
   );
 };
 

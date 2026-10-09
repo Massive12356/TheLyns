@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
-// import { Link } from 'react-router-dom';
 import { Handshake, Globe, Users, Lightbulb, ArrowRight, CheckCircle, Building2, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 // import { partners } from '../data/mockData';
@@ -47,11 +45,6 @@ const PartnersPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Partner With Us | The Lys Foundation</title>
-        <meta name="description" content="Partner with The Lys Foundation to expand access to quality Montessori education and empower single mothers across Ghana." />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

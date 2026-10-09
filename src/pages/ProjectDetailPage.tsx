@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, MapPin, Target, CheckCircle, Users } from 'lucide-react';
 import { projects } from '../data/mockData';
@@ -14,11 +13,6 @@ const ProjectDetailPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{project.title} | The Lys Foundation</title>
-        <meta name="description" content={project.description} />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

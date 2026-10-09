@@ -1,5 +1,6 @@
 import { PropsWithChildren, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { 
   LayoutDashboard, 
   FileText, 
@@ -62,6 +63,10 @@ const AdminLayout = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex">
+      <Helmet>
+        <title>Admin | The Lys Foundation</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
         <div 

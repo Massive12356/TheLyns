@@ -1,4 +1,4 @@
-import { Instagram, Twitter, Facebook, Mail, Phone, MapPin, Clock, Heart } from 'lucide-react';
+import { Instagram, Twitter, Facebook, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ngoInfo, projects } from '../data/mockData';
 
@@ -28,7 +28,7 @@ const Footer = () => {
               <div className="bg-white rounded-xl p-2">
                 <img 
                   src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/IMG_20260623_175709_771_vwkkgq.png"
-                  alt="The Lys Foundation"
+                  alt="The Lys Foundation — education NGO for children in Ghana"
                   className="h-14 w-auto object-contain"
                 />
               </div>
@@ -150,9 +150,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-white/50 text-sm flex items-center">
-              &copy; {new Date().getFullYear()} {ngoInfo.name}. Made with 
-              <Heart className="w-4 h-4 mx-1 text-accent" /> 
-              for educational equity.
+              &copy; {new Date().getFullYear()}               {ngoInfo.name}. A children's education NGO in Accra, Ghana.
             </p>
             <div className="flex flex-wrap justify-center space-x-6 mt-4 md:mt-0">
               {legalLinks.map((link, index) => (

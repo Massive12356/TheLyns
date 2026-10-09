@@ -1,30 +1,11 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Target, Heart, Shield, Users, Lightbulb, ArrowRight, Award, CheckCircle2, Scale, Globe, Activity } from 'lucide-react';
+import { Target, Shield, ArrowRight, Award, CheckCircle2, Activity } from 'lucide-react';
 import { ngoInfo, founders, impactStats } from '../data/mockData';
 
 const AboutPage = () => {
-  const iconMap: { [key: string]: React.ElementType } = {
-    Heart,
-    Shield,
-    Users,
-    Target,
-    Scale,
-    Globe
-  };
-
   return (
     <>
-      <Helmet>
-        <title>About Us | The Lys Foundation</title>
-        <meta name="description" content="Learn about The Lys Foundation — providing Montessori education to underprivileged children and empowering single mothers in Ghana." />
-        <meta name="keywords" content="Lys Foundation, education NGO, Montessori, Ghana, underprivileged children, single mothers, child sponsorship" />
-        <meta property="og:title" content="About Us | The Lys Foundation" />
-        <meta property="og:description" content="Quality Montessori education and mother empowerment in Ghana." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -43,7 +24,7 @@ const AboutPage = () => {
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6"
             >
-              About Us
+              About The Lys Foundation
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -72,7 +53,7 @@ const AboutPage = () => {
                 </h2>
                 <div className="space-y-4 text-secondary leading-relaxed">
                   <p>
-                    The Lys Foundation was founded in 2015 and officially registered in 2021 as a Company Limited by Guarantee (LBG) and an NGO. We are a non-political, non-profit organisation dedicated to the underprivileged in our society — specifically through quality Montessori education for children, most of whom are orphans or are being raised by single mothers.
+                    The Lys Foundation — also searched as Lys Foundation or Lyn Foundation — is a children's education NGO in Accra, Ghana. Founded in 2015 and officially registered in 2021 as a Company Limited by Guarantee (LBG) and an NGO, we are a non-political, non-profit organisation dedicated to quality Montessori education for underprivileged children, most of whom are orphans or are being raised by single mothers.
                   </p>
                   <p>
                     Co-founded by Jemima K. Adamah — a Pastor, architect-turned-educationist, and Director of the Lys Foundation School — alongside Ewurama Ocran-Gbekor, an architect and Project Management Professional leading sponsorship and business development.
@@ -92,7 +73,7 @@ const AboutPage = () => {
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <img
                     src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_0000000058e471f48d9627ee6cc2ce00_oscrsn.png"
-                    alt="Lys Foundation pupils learning"
+                    alt="Lys Foundation pupils learning in a Montessori classroom in Accra, Ghana"
                     className="w-full h-auto"
                   />
                 </div>

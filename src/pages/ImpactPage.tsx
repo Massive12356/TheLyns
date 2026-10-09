@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Activity, Heart, Users, MapPin, TrendingUp, Shield, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { impactStats, patientStories } from '../data/mockData';
@@ -54,13 +53,6 @@ const ImpactPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Our Impact | The Lys Foundation</title>
-        <meta name="description" content="See how The Lys Foundation is transforming lives through Montessori education, daily meals, mother empowerment, and satellite learning centres across Ghana." />
-        <meta property="og:title" content="Our Impact | The Lys Foundation" />
-        <meta property="og:description" content="120+ children supported, 240+ pupils through satellite centres, 6 communities reached." />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

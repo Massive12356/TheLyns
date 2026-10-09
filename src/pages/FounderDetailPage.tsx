@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { 
   ArrowLeft, 
@@ -35,11 +34,6 @@ const FounderDetailPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{founder.name} | The Lys Foundation</title>
-        <meta name="description" content={`${founder.name} - ${founder.role}. ${founder.bio}`} />
-      </Helmet>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
