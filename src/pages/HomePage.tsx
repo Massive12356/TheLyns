@@ -59,12 +59,14 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>The Lys Foundation | Quality Education for Every Child in Ghana</title>
-        <meta name="description" content="The Lys Foundation provides Montessori education to underprivileged children and empowers single mothers across Ghana." />
-        <meta name="keywords" content="education NGO, Montessori, Ghana, underprivileged children, single mothers, Lys Foundation, child sponsorship" />
-        <meta property="og:title" content="The Lys Foundation | Quality Education for Every Child" />
-        <meta property="og:description" content="Montessori education and mother empowerment in Ghana." />
+        <title>The Lys Foundation | Lys Foundation Ghana — Montessori Education NGO</title>
+        <meta name="description" content="The Lys Foundation (Lys Foundation) is a Ghana NGO in Accra providing Montessori education for underprivileged children and support for single mothers. Also known as The Lyns Foundation and Lyns Foundation." />
+        <meta name="keywords" content="The Lys Foundation, Lys Foundation, The Lyns Foundation, Lyns Foundation, Lys Foundation Ghana, Lys Foundation School, Montessori education Ghana, education NGO Accra, sponsor a child Ghana, single mothers" />
+        <meta property="og:title" content="The Lys Foundation | Montessori Education for Children in Ghana" />
+        <meta property="og:description" content="The Lys Foundation, also known as Lys Foundation and Lyns Foundation, provides Montessori education and mother empowerment in Accra, Ghana." />
         <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="The Lys Foundation | Montessori Education in Ghana" />
+        <meta name="twitter:description" content="Lys Foundation — Montessori education for underprivileged children and support for single mothers in Ghana." />
       </Helmet>
 
       <motion.div

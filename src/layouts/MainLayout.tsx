@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SiteSeo from '../components/SiteSeo';
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -22,6 +23,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SiteSeo />
       <Navbar />
       <main className="flex-grow pt-16">
         {children}

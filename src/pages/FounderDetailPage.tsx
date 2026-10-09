@@ -36,7 +36,7 @@ const FounderDetailPage = () => {
   return (
     <>
       <Helmet>
-        <title>{founder.name} | NYANEX</title>
+        <title>{founder.name} | The Lys Foundation</title>
         <meta name="description" content={`${founder.name} - ${founder.role}. ${founder.bio}`} />
       </Helmet>
 

@@ -33,8 +33,11 @@ const Footer = () => {
                 />
               </div>
             </div>
-            <p className="text-white/70 mb-6 leading-relaxed text-sm">
+            <p className="text-white/70 mb-3 leading-relaxed text-sm">
               {ngoInfo.description}
+            </p>
+            <p className="text-white/40 text-xs mb-6 leading-relaxed">
+              Also known as Lys Foundation, The Lyns Foundation, and Lyns Foundation.
             </p>
             <div className="flex space-x-4">
               <a
