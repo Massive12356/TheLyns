@@ -91,7 +91,7 @@ const DonatePage = () => {
   }, [paymentReference, setSearchParams]);
 
   const handlePaystackPayment = async (amountOverride?: number) => {
-    const amount = amountOverride ?? (selectedAmount || Number(customAmount));
+    const amount = typeof amountOverride === 'number' ? amountOverride : selectedAmount || Number(customAmount);
     if (!amount || amount < 1) {
       setNotice({ type: 'error', text: 'Enter an amount of at least GHS 1.' });
       return;
@@ -393,7 +393,10 @@ const DonatePage = () => {
 
               {/* Paystack Button */}
               <button
-                onClick={handlePaystackPayment}
+                type="button"
+                onClick={() => {
+                  void handlePaystackPayment();
+                }}
                 disabled={isProcessing}
                 className="w-full py-4 bg-secondary text-white font-bold text-lg rounded-xl hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
               >
