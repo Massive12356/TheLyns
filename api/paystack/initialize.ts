@@ -1,4 +1,4 @@
-import { initializeDonation } from '../../server/paystack';
+import { initializeDonation } from '../../server/paystack.js';
 
 type ApiRequest = {
   method?: string;
@@ -33,15 +33,19 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     return;
   }
 
-  const body = readBody(req.body);
-  const origin = headerValue(req.headers.origin) || headerValue(req.headers.referer);
-  const result = await initializeDonation({
-    email: body.email,
-    amount: body.amount,
-    name: body.name,
-    origin,
-  });
+  try {
+    const body = readBody(req.body);
+    const origin = headerValue(req.headers.origin) || headerValue(req.headers.referer);
+    const result = await initializeDonation({
+      email: body.email,
+      amount: body.amount,
+      name: body.name,
+      origin,
+    });
 
-  const { status, ...payload } = result;
-  res.status(status).json(payload);
+    const { status, ...payload } = result;
+    res.status(status).json(payload);
+  } catch {
+    res.status(502).json({ ok: false, message: 'Could not reach Paystack. Try again in a moment.' });
+  }
 }

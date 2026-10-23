@@ -114,7 +114,15 @@ const DonatePage = () => {
           name: donorName.trim(),
         }),
       });
-      const result = await response.json();
+      const raw = await response.text();
+      let result: { ok?: boolean; authorizationUrl?: string; message?: string } = {};
+      try {
+        result = raw ? JSON.parse(raw) : {};
+      } catch {
+        setNotice({ type: 'error', text: 'Payments are temporarily unavailable. Please try again shortly.' });
+        setIsProcessing(false);
+        return;
+      }
       if (!result.ok || !result.authorizationUrl) {
         setNotice({ type: 'error', text: result.message || 'Paystack could not start this payment.' });
         setIsProcessing(false);

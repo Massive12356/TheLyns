@@ -1,4 +1,4 @@
-import { verifyDonation } from '../../server/paystack';
+import { verifyDonation } from '../../server/paystack.js';
 
 type ApiRequest = {
   method?: string;
@@ -15,8 +15,12 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     return;
   }
 
-  const reference = req.query?.reference;
-  const result = await verifyDonation(Array.isArray(reference) ? reference[0] : reference);
-  const { status, ...payload } = result;
-  res.status(status).json(payload);
+  try {
+    const reference = req.query?.reference;
+    const result = await verifyDonation(Array.isArray(reference) ? reference[0] : reference);
+    const { status, ...payload } = result;
+    res.status(status).json(payload);
+  } catch {
+    res.status(502).json({ ok: false, message: 'Could not reach Paystack. Try again in a moment.' });
+  }
 }

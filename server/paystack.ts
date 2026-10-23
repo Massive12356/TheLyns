@@ -28,7 +28,7 @@ export type VerifySuccess = {
 };
 
 export function paystackSecret() {
-  return process.env.PAYSTACK_SECRET_KEY || process.env.LiveSecretKey || '';
+  return (process.env.PAYSTACK_SECRET_KEY || process.env.LiveSecretKey || '').trim();
 }
 
 export function donationCallbackUrl(origin: string | undefined) {
