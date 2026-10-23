@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import { ngoInfo, projects } from '../data/mockData';
 
 const Footer = () => {
+  const email = 'lysfoundation21@gmail.com';
+  const phones = ['+233 24 345 8689', '+233 266557203'];
   const quickLinks = [
     { name: 'About Us', path: '/about' },
     { name: 'Programs', path: '/projects' },
     { name: 'Our Impact', path: '/impact' },
     { name: 'Volunteer', path: '/volunteer' },
     { name: 'Donate', path: '/donate' },
+    { name: 'Our Donors', path: '/donors' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -65,7 +68,7 @@ const Footer = () => {
                 <Facebook size={18} />
               </a>
               <a
-                href={`mailto:${ngoInfo.email}`}
+                href={`mailto:${email}`}
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white/60 hover:bg-accent hover:text-primary-dark transition-all duration-300"
                 aria-label="Email"
               >
@@ -116,16 +119,24 @@ const Footer = () => {
                 <MapPin size={18} className="text-accent mt-1 flex-shrink-0" />
                 <span className="text-white/70 text-sm">{ngoInfo.address}</span>
               </li>
-              <li className="flex items-center space-x-3">
-                <Phone size={18} className="text-accent flex-shrink-0" />
-                <a href={`tel:${ngoInfo.phone}`} className="text-white/70 hover:text-accent transition-colors text-sm">
-                  {ngoInfo.phone}
-                </a>
+              <li className="flex items-start space-x-3">
+                <Phone size={18} className="text-accent mt-0.5 flex-shrink-0" />
+                <div className="space-y-1">
+                  {phones.map((phone) => (
+                    <a
+                      key={phone}
+                      href={`tel:${phone.replace(/\s/g, '')}`}
+                      className="block text-white/70 hover:text-accent transition-colors text-sm"
+                    >
+                      {phone}
+                    </a>
+                  ))}
+                </div>
               </li>
-              <li className="flex items-center space-x-3">
-                <Mail size={18} className="text-accent flex-shrink-0" />
-                <a href={`mailto:${ngoInfo.email}`} className="text-white/70 hover:text-accent transition-colors text-sm">
-                  {ngoInfo.email}
+              <li className="flex items-start space-x-3">
+                <Mail size={18} className="text-accent mt-0.5 flex-shrink-0" />
+                <a href={`mailto:${email}`} className="text-white/70 hover:text-accent transition-colors text-sm break-all">
+                  {email}
                 </a>
               </li>
               <li className="flex items-start space-x-3">

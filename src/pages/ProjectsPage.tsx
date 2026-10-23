@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Filter } from 'lucide-react';
 import { projects } from '../data/mockData';
+import { OptimizedImage } from '../components/OptimizedImage';
 import { useState } from 'react';
 
 const ProjectsPage = () => {
@@ -88,19 +89,18 @@ const ProjectsPage = () => {
                   className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
                 >
                   <div className="relative h-64 overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src={project.image}
                       alt={project.title}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      widths={[480, 800]}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-accent text-white text-xs font-semibold rounded-full">
+                    <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white text-primary text-xs font-semibold rounded-full shadow-sm">
                         {project.category}
                       </span>
-                    </div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <span className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs rounded-full">
+                      <span className="px-3 py-1 bg-white text-secondary text-xs rounded-full shadow-sm">
                         {project.type}
                       </span>
                     </div>

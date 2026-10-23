@@ -2,10 +2,15 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, Users, Activity, MapPin, ChevronLeft, ChevronRight, CheckCircle2, HandHeart, Sparkles } from 'lucide-react';
 import { useState } from 'react';
-import { ngoInfo, projects, patientStories } from '../data/mockData';
+import { ngoInfo, projects, patientStories, donorCompanies } from '../data/mockData';
+import { OptimizedImage } from '../components/OptimizedImage';
+import { optimizedImage } from '../utils/images';
 
 const HomePage = () => {
   const featuredProjects = projects.filter(p => p.featured).slice(0, 3);
+  const featuredDonors = ['ghana-institute-of-surveyors', 'akenkan-shop']
+    .map((slug) => donorCompanies.find((donor) => donor.slug === slug))
+    .filter((donor): donor is (typeof donorCompanies)[number] => Boolean(donor));
   const featuredEvents = [
     {
       id: 1,
@@ -43,13 +48,13 @@ const HomePage = () => {
       title: "Quality Education for Every Child in Ghana",
       highlight: "Every Child",
       description: "The Lys Foundation provides Montessori education to underprivileged children — mostly orphans and children of single mothers — right here in Ghana.",
-      image: "https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png",
+      image: "https://res.cloudinary.com/cmpwim01/image/upload/v1792762497/untitled-1.jpg",
     },
     {
       title: "Transforming Lives Through Learning",
       highlight: "Transforming",
       description: "Quality education, daily nourishment, and family support — empowering Ghana's next generation to dream bigger and achieve more.",
-      image: "https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499483/file_00000000861872438a811f0d6c3b3948_xidrzq.png",
+      image: "https://res.cloudinary.com/cmpwim01/image/upload/v1792762491/IMG_7135.jpg",
     },
   ];
 
@@ -77,7 +82,7 @@ const HomePage = () => {
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{ backgroundImage: `url(${slide.image})` }}
+                  style={{ backgroundImage: `url(${optimizedImage(slide.image, 1920)})` }}
                 />
               </div>
             ))}
@@ -444,44 +449,41 @@ const HomePage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                  className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
                 >
-                  {/* Full Image Background */}
                   <div className="relative h-72 overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src={project.image}
                       alt={project.title}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      widths={[480, 800]}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-                    {/* Category Badge */}
                     <div className="absolute top-5 left-5">
-                      <span className="px-4 py-1.5 bg-white/95 backdrop-blur-sm text-primary text-xs font-bold rounded-full shadow-lg">
+                      <span className="px-4 py-1.5 bg-white text-primary text-xs font-bold rounded-full shadow-lg">
                         {project.category}
                       </span>
                     </div>
-                    {/* Content Overlaid */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-xl font-display font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                      <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                        {project.description}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center text-sm text-white/70">
-                          <MapPin className="w-4 h-4 mr-1.5" />
-                          {project.location}
-                        </div>
-                        <Link
-                          to={`/projects/${project.slug}`}
-                          className="inline-flex items-center text-accent font-semibold text-sm hover:text-white transition-colors"
-                        >
-                          Learn More
-                          <ArrowRight className="ml-1.5 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-display font-bold text-primary mb-2 group-hover:text-accent transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-secondary text-sm mb-3 line-clamp-2">
+                      {project.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center text-sm text-secondary">
+                        <MapPin className="w-4 h-4 mr-1.5" />
+                        {project.location}
                       </div>
+                      <Link
+                        to={`/projects/${project.slug}`}
+                        className="inline-flex items-center text-accent font-semibold text-sm hover:text-primary transition-colors"
+                      >
+                        Learn More
+                        <ArrowRight className="ml-1.5 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     </div>
                   </div>
                 </motion.div>
@@ -494,6 +496,50 @@ const HomePage = () => {
                 className="inline-flex items-center px-8 py-3.5 bg-primary text-black font-semibold rounded-full hover:bg-primary-light transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5"
               >
                 View All Programs
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <span className="text-accent font-semibold text-sm uppercase tracking-wider">Our Supporters</span>
+              <h2 className="text-4xl font-display font-bold text-primary mt-2 mb-4">
+                Companies That Donate
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {featuredDonors.map((donor) => (
+                <Link
+                  key={donor.slug}
+                  to="/donors"
+                  className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                >
+                  <div className="h-80 overflow-hidden">
+                    <OptimizedImage
+                      src={donor.images[0]}
+                      alt={donor.name}
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      widths={[480, 800]}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <h3 className="px-6 py-5 text-xl font-display font-bold text-primary">
+                    {donor.name}
+                  </h3>
+                </Link>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <Link
+                to="/donors"
+                className="inline-flex items-center px-8 py-3.5 bg-primary text-black font-semibold rounded-full hover:bg-primary-light transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5"
+              >
+                See All Donors
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </div>

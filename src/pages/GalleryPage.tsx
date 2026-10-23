@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Camera, Grid, Filter } from 'lucide-react';
 import { galleryCategories, galleryImages } from '../data/mockData';
+import { OptimizedImage } from '../components/OptimizedImage';
+import { optimizedImage } from '../utils/images';
 
 const GalleryPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -63,7 +65,10 @@ const GalleryPage = () => {
               {categories.map((category) => (
                 <button
                   key={category}
-                  onClick={() => setActiveCategory(category)}
+                  onClick={() => {
+                    setActiveCategory(category);
+                    setSelectedImage(null);
+                  }}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     activeCategory === category
                       ? 'bg-primary text-black'
@@ -90,12 +95,14 @@ const GalleryPage = () => {
                   onClick={() => setSelectedImage(index)}
                   className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
                 >
-                  <img
+                  <OptimizedImage
                     src={image.url}
                     alt={image.caption}
+                    sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    widths={[400, 800]}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                     <p className="text-white font-semibold text-sm mb-1">{image.caption}</p>
                     <span className="inline-block px-2 py-1 bg-accent/90 text-white text-xs rounded-full">
@@ -138,9 +145,9 @@ const GalleryPage = () => {
                 ✕
               </button>
               <img
-                src={filteredImages[selectedImage]?.url}
+                src={optimizedImage(filteredImages[selectedImage]?.url || '', 1600)}
                 alt={filteredImages[selectedImage]?.caption}
-                className="w-full h-full object-contain rounded-lg"
+                className="w-full max-h-[75vh] object-contain rounded-lg"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
                 <p className="text-white font-semibold">{filteredImages[selectedImage]?.caption}</p>

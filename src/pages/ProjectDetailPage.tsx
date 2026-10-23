@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowLeft, MapPin, Target, CheckCircle, Users } from 'lucide-react';
 import { projects } from '../data/mockData';
+import { OptimizedImage } from '../components/OptimizedImage';
 
 const ProjectDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -22,12 +23,15 @@ const ProjectDetailPage = () => {
         {/* Hero Section */}
         <section className="relative h-[60vh] overflow-hidden">
           <div className="absolute inset-0">
-            <img
+            <OptimizedImage
               src={project.image}
               alt={project.title}
+              sizes="100vw"
+              widths={[960, 1600, 2000]}
+              priority
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
           </div>
           
           <div className="relative z-10 h-full flex items-end">
@@ -99,24 +103,6 @@ const ProjectDetailPage = () => {
                   </ul>
                   {project.closing && (
                     <p className="text-secondary text-lg leading-relaxed">{project.closing}</p>
-                  )}
-
-                  {/* Gallery */}
-                  {project.gallery.length > 0 && (
-                    <>
-                      <h3 className="text-2xl font-display font-bold text-primary mb-4">Gallery</h3>
-                      <div className="grid grid-cols-2 gap-4">
-                        {project.gallery.map((image, index) => (
-                          <div key={index} className="rounded-xl overflow-hidden">
-                            <img
-                              src={image}
-                              alt={`${project.title} - Image ${index + 1}`}
-                              className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </>
                   )}
                 </motion.div>
               </div>

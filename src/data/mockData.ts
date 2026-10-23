@@ -157,9 +157,14 @@ export const projects: Project[] = [
     status: 'Active',
     startDate: 'N/A',
     location: 'Accra, Ghana',
-    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png',
+    image: 'https://res.cloudinary.com/cmpwim01/image/upload/v1792762589/IMG_4970.jpg',
     gallery: [
-      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png'
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762591/IMG_5056.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762589/IMG_4970.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762588/IMG_5117.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762586/IMG_5108.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762582/IMG_5058.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762584/IMG_5073.jpg',
     ],
     featured: true,
     impact: {
@@ -189,9 +194,17 @@ export const projects: Project[] = [
     startDate: 'N/A',
     endDate: 'N/A',
     location: 'Mamprobi Camara, Accra',
-    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499483/file_00000000861872438a811f0d6c3b3948_xidrzq.png',
+    image: 'https://res.cloudinary.com/cmpwim01/image/upload/v1792759772/_MG_0691.jpg',
     gallery: [
-      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499483/file_00000000861872438a811f0d6c3b3948_xidrzq.png'
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759775/_MG_6606.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759769/photo_98_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759767/photo_95_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759766/photo_87_2026-09-09_12-00-22.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759764/photo_86_2026-09-09_12-00-22.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759762/photo_86_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759761/photo_85_2026-09-09_12-00-22.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759760/_MG_0898.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759760/photo_82_2026-09-09_11-56-17.jpg',
     ],
     featured: true,
     impact: {
@@ -223,9 +236,12 @@ export const projects: Project[] = [
     startDate: 'N/A',
     endDate: 'N/A',
     location: 'Accra, Ghana',
-    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499482/file_0000000074047246a49f814865a4f0bc_ysaxea.png',
+    image: 'https://res.cloudinary.com/cmpwim01/image/upload/v1792763050/FB_IMG_1734557826821.jpg',
     gallery: [
-      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499482/file_0000000074047246a49f814865a4f0bc_ysaxea.png'
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763122/Joyful_School_Lunch_Gathering.png',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763047/photo_8_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763052/IMG-20241218-WA0008.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763055/IMG_4948.jpg',
     ],
     featured: true,
     impact: {
@@ -257,9 +273,9 @@ export const projects: Project[] = [
     startDate: 'N/A',
     endDate: 'N/A',
     location: 'Accra, Ghana',
-    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_00000000498c71f4818bcbc1c815fddc_aqktan.png',
+    image: 'https://res.cloudinary.com/cmpwim01/image/upload/v1792762744/Outdoor_Alphabet_Class_on_the_Veranda.png',
     gallery: [
-      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_00000000498c71f4818bcbc1c815fddc_aqktan.png'
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762744/Outdoor_Alphabet_Class_on_the_Veranda.png',
     ],
     featured: false,
     impact: {
@@ -291,11 +307,16 @@ export const projects: Project[] = [
     startDate: 'N/A',
     endDate: 'N/A',
     location: 'Accra, Ghana',
-    image: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/file_0000000017047243ad6561c827db183e_mtyr0f.png',
+    image: 'https://res.cloudinary.com/cmpwim01/image/upload/v1792762742/IMG_4907.jpg',
     gallery: [
-      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/file_0000000017047243ad6561c827db183e_mtyr0f.png',
-      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_000000001c0471f4a07b9cc523e96887_s3amk7.png',
-      'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499476/file_00000000545071f4924dd6d3f1b215e8_v6oqgi.png'
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762845/photo_77_2026-09-09_12-00-22.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762847/photo_78_2026-09-09_12-00-22.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762851/IMG_5081.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762853/photo_26_2026-09-09_12-01-13.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762855/photo_46_2026-09-09_12-00-21.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762857/photo_65_2026-09-09_12-00-21.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762859/photo_70_2026-09-09_12-00-21.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762863/20260826_104059.jpg',
     ],
     featured: true,
     impact: {
@@ -743,72 +764,130 @@ export const trustIndicators = {
   awards: ['Educational Equity Champion 2024', 'Mother Empowerment Recognition 2023']
 };
 
-// Gallery Data
+const galleryAlbums: { category: string; urls: string[] }[] = [
+  {
+    category: 'Child Play',
+    urls: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759677/IMG_9990.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759677/IMG_9900.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792759674/IMG_9894.jpg',
+    ],
+  },
+  {
+    category: 'Graduations',
+    urls: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762166/photo_91_2026-09-09_12-00-22.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762165/photo_89_2026-09-09_12-00-22.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762164/photo_82_2026-09-09_12-00-22.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762162/photo_79_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762161/photo_77_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762159/photo_70_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762158/photo_68_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762156/photo_67_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762153/photo_64_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762151/photo_63_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762150/photo_62_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762149/photo_51_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762146/photo_47_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762143/photo_46_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762142/photo_45_2026-09-09_11-56-17.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762138/photo_37_2026-09-09_12-00-21.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762050/photo_2_2026-09-09_12-01-13.jpg',
+    ],
+  },
+  {
+    category: 'Student Activity',
+    urls: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762967/IMG_7176.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762964/IMG_7159.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762962/IMG_7133.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762960/IMG_5014.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762957/IMG_5003.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762955/IMG_4923.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762953/IMG_4917.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762948/IMG_9820.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762941/IMG_9586.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792762939/IMG_7180.jpg',
+    ],
+  },
+];
+
 export const galleryCategories = [
-  'Montessori Classroom',
-  'STEAM Education',
-  'Community Events',
-  'Student Activities',
-  'Mother Empowerment',
-  'Satellite Learning'
+  ...projects.map((project) => project.title),
+  ...galleryAlbums.map((album) => album.category),
+];
+
+export const donorCompanies: { name: string; slug: string; images: string[] }[] = [
+  {
+    name: 'Akenkan Shop',
+    slug: 'akenkan-shop',
+    images: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763265/photo_2_2026-09-09_11-56-17k.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763262/photo_1_2026-09-09_12-00-21k.jpg',
+    ],
+  },
+  {
+    name: 'Amadeus',
+    slug: 'amadeus',
+    images: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763619/IMG_0358.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763617/FB_IMG_1734557744918.jpg',
+    ],
+  },
+  {
+    name: 'Ghana Institute of Surveyors',
+    slug: 'ghana-institute-of-surveyors',
+    images: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763927/img_4_1792523302528.jpg.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763925/img_3_1792523288206.jpg.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763720/FB_IMG_1734557734547.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792763717/FB_IMG_1734557696593.jpg',
+    ],
+  },
+  {
+    name: 'IFED Global',
+    slug: 'ifed-global',
+    images: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792764060/photo_69_2026-09-09_12-00-21.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792764057/photo_35_2026-09-09_11-56-17.jpg',
+    ],
+  },
+  {
+    name: 'STEMAID',
+    slug: 'stemaid',
+    images: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792764092/photo_88_2026-09-09_12-00-22.jpg',
+    ],
+  },
+  {
+    name: 'STEMSHECAN',
+    slug: 'stemshecan',
+    images: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792764127/photo_27_2026-09-09_12-01-13.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792764130/photo_28_2026-09-09_12-01-13.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792764134/photo_29_2026-09-09_11-56-17.jpg',
+    ],
+  },
 ];
 
 export const galleryImages: GalleryImage[] = [
-  {
-    id: 1,
-    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png',
-    caption: 'Children engaged in Montessori learning activities',
-    category: 'Montessori Classroom',
-    date: '2024-01-15'
-  },
-  {
-    id: 2,
-    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/file_0000000017047243ad6561c827db183e_mtyr0f.png',
-    caption: 'STEAM education - Science experiments in action',
-    category: 'STEAM Education',
-    date: '2024-02-10'
-  },
-  {
-    id: 3,
-    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499483/file_00000000861872438a811f0d6c3b3948_xidrzq.png',
-    caption: 'Community gathering and celebration',
-    category: 'Community Events',
-    date: '2024-03-05'
-  },
-  {
-    id: 4,
-    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499482/file_0000000074047246a49f814865a4f0bc_ysaxea.png',
-    caption: 'Students collaborating on creative projects',
-    category: 'Student Activities',
-    date: '2024-03-20'
-  },
-  {
-    id: 5,
-    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_00000000498c71f4818bcbc1c815fddc_aqktan.png',
-    caption: 'Mother empowerment workshop session',
-    category: 'Mother Empowerment',
-    date: '2024-04-12'
-  },
-  {
-    id: 6,
-    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_000000001c0471f4a07b9cc523e96887_s3amk7.png',
-    caption: 'Satellite learning centre in rural community',
-    category: 'Satellite Learning',
-    date: '2024-05-08'
-  },
-  {
-    id: 7,
-    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_0000000058e471f48d9627ee6cc2ce00_oscrsn.png',
-    caption: 'Technology integration in early childhood education',
-    category: 'STEAM Education',
-    date: '2024-06-15'
-  },
-  {
-    id: 8,
-    url: 'https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499476/file_00000000545071f4924dd6d3f1b215e8_v6oqgi.png',
-    caption: 'Art and creativity session',
-    category: 'STEAM Education',
-    date: '2024-07-20'
-  }
+  ...projects.flatMap((project) =>
+    project.gallery.map((url, index) => ({
+      id: project.id * 100 + index + 1,
+      url,
+      caption: project.title,
+      category: project.title,
+      date: '',
+    }))
+  ),
+  ...galleryAlbums.flatMap((album, albumIndex) =>
+    album.urls.map((url, index) => ({
+      id: 1000 + albumIndex * 100 + index,
+      url,
+      caption: album.category,
+      category: album.category,
+      date: '',
+    }))
+  ),
 ];
 

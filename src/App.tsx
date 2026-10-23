@@ -25,6 +25,7 @@ import EventRegistrationPage from './pages/EventRegistrationPage';
 import VolunteerPage from './pages/VolunteerPage';
 import PartnersPage from './pages/PartnersPage';
 import DonatePage from './pages/DonatePage';
+import DonorsPage from './pages/DonorsPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import FounderDetailPage from './pages/FounderDetailPage';
 import MethodologyDetailPage from './pages/MethodologyDetailPage';
@@ -54,6 +55,7 @@ const PublicRoutes = () => {
           <Route path="/volunteer" element={<VolunteerPage />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/donate" element={<DonatePage />} />
+          <Route path="/donors" element={<DonorsPage />} />
           <Route path="/success-stories" element={<SuccessStoriesPage />} />
           <Route path="/success-stories/:slug" element={<SuccessStoryDetailPage />} />
           <Route path="/blog" element={<BlogPage />} />
