@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Calendar, MapPin, Filter } from 'lucide-react';
+import { ArrowRight, MapPin, Filter } from 'lucide-react';
 import { projects } from '../data/mockData';
 import { useState } from 'react';
 
@@ -113,14 +113,6 @@ const ProjectsPage = () => {
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-4 text-sm text-earth mb-4">
-                      <div className={`flex items-center ${project.startDate === 'N/A' ?  'hidden' : 'block'}`}>
-                        <Calendar className="w-4 h-4 mr-2" />
-                        {project.startDate}
-                      </div>
-                      <div className={`flex items-center ${project.endDate === 'N/A' ?  'hidden' : 'block'}`}>
-                        <Calendar className="w-4 h-4 mr-2" />
-                        {project.endDate}
-                      </div>
                       <div className="flex items-center">
                         <MapPin className="w-4 h-4 mr-2" />
                         {project.location}

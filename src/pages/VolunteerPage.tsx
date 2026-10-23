@@ -84,7 +84,7 @@ const VolunteerPage = () => {
                 Make an Impact
               </h2>
               <p className="text-secondary max-w-2xl mx-auto">
-                Volunteering with NYANEX offers unique opportunities to contribute to meaningful projects while developing your skills.
+                Volunteering with LYS offers unique opportunities to contribute to meaningful projects while developing your skills.
               </p>
             </div>
 
@@ -307,7 +307,7 @@ const VolunteerPage = () => {
                     Application Received!
                   </h2>
                   <p className="text-secondary max-w-md mx-auto">
-                    Thank you for your interest in volunteering with NYANEX. We will review your application and get back to you within 5 business days.
+                    Thank you for your interest in volunteering with LYS. We will review your application and get back to you within 5 business days.
                   </p>
                 </div>
               )}

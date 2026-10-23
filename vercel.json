@@ -19,7 +19,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!sitemap\\.xml$|robots\\.txt$|manifest\\.webmanifest$).*)",
+      "source": "/((?!sitemap\\.xml$|robots\\.txt$|manifest\\.webmanifest$|api/).*)",
       "destination": "/index.html"
     }
   ]

@@ -27,8 +27,10 @@ import PartnersPage from './pages/PartnersPage';
 import DonatePage from './pages/DonatePage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import FounderDetailPage from './pages/FounderDetailPage';
+import MethodologyDetailPage from './pages/MethodologyDetailPage';
 import ImpactPage from './pages/ImpactPage';
 import SuccessStoriesPage from './pages/SuccessStoriesPage';
+import SuccessStoryDetailPage from './pages/SuccessStoryDetailPage';
 import FAQPage from './pages/FAQPage';
 import GalleryPage from './pages/GalleryPage';
 import STEAMPage from './pages/STEAMPage';
@@ -43,6 +45,7 @@ const PublicRoutes = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/about/founder/:id" element={<FounderDetailPage />} />
+          <Route path="/about/methodology/:slug" element={<MethodologyDetailPage />} />
           <Route path="/impact" element={<ImpactPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:id" element={<ProjectDetailPage />} />
@@ -52,6 +55,7 @@ const PublicRoutes = () => {
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/donate" element={<DonatePage />} />
           <Route path="/success-stories" element={<SuccessStoriesPage />} />
+          <Route path="/success-stories/:slug" element={<SuccessStoryDetailPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogDetailPage />} />
           <Route path="/contact" element={<ContactPage />} />

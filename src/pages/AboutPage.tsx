@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Target, Shield, ArrowRight, Award, CheckCircle2, Activity } from 'lucide-react';
+import { Target, Shield, ArrowRight, Activity } from 'lucide-react';
 import { ngoInfo, founders, impactStats } from '../data/mockData';
+import { methodology } from '../data/methodology';
 
 const AboutPage = () => {
   return (
@@ -53,13 +54,21 @@ const AboutPage = () => {
                 </h2>
                 <div className="space-y-4 text-secondary leading-relaxed">
                   <p>
-                    The Lys Foundation — also searched as Lys Foundation or Lyn Foundation — is a children's education NGO in Accra, Ghana. Founded in 2015 and officially registered in 2021 as a Company Limited by Guarantee (LBG) and an NGO, we are a non-political, non-profit organisation dedicated to quality Montessori education for underprivileged children, most of whom are orphans or are being raised by single mothers.
+                    Our work focuses primarily on children from vulnerable backgrounds, particularly orphans and those being raised in single-parent households. Through a holistic, child-centred Montessori approach, we provide a nurturing learning environment that fosters academic excellence, character development, independence and essential life skills.
                   </p>
                   <p>
-                    Co-founded by Jemima K. Adamah — a Pastor, architect-turned-educationist, and Director of the Lys Foundation School — alongside Ewurama Ocran-Gbekor, an architect and Project Management Professional leading sponsorship and business development.
+                    At The Lys Foundation, we believe that every child, regardless of their background or circumstances, deserves the opportunity to learn, grow and reach their full potential. Our philosophy is rooted in the timeless wisdom:
+                  </p>
+                  <blockquote className="border-l-2 border-accent pl-5">
+                    <p className="italic text-primary">
+                      “Give a man a fish, and you feed him for a day. Teach a man to fish, and you feed him for a lifetime.”
+                    </p>
+                  </blockquote>
+                  <p>
+                    What began as a simple vision to give every child a fair chance in life has grown into a transformative initiative encompassing a Montessori school, serving underserved communities with educational initiatives, daily nutritious meals and routine health checks for our pupils, and empowerment programmes that equip single mothers with the skills and opportunities to build sustainable livelihoods.
                   </p>
                   <p>
-                    What started as a vision to give every child a fair chance has grown into a Montessori school, a network of satellite learning centres in impoverished communities, daily meals and health checks for our pupils, and an empowerment programme for the single mothers behind them.
+                    Our commitment goes beyond education. We seek to nurture the whole child, strengthen families and empower communities to break the cycle of poverty.
                   </p>
                 </div>
               </motion.div>
@@ -192,78 +201,31 @@ const AboutPage = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  num: '01',
-                  title: 'Collaborative Partnerships',
-                  description: 'We work in partnership with religious bodies, corporate institutions, and private individuals to secure safe and strategic learning spaces within underserved communities.',
-                  icon: '\uD83E\uDD1D',
-                },
-                {
-                  num: '02',
-                  title: 'Satellite Learning Model',
-                  description: 'We establish satellite education and training centres in disadvantaged areas, ensuring immediate access to education. Over time, students are transitioned into a central campus with boarding facilities, offering continuous education from nursery through Junior Secondary School, alongside a fully equipped vocational training centre.',
-                  icon: '\uD83C\uDFEB',
-                },
-                {
-                  num: '03',
-                  title: 'Montessori-Based Education',
-                  description: 'Our curriculum is rooted in the Montessori philosophy, emphasizing experiential learning through play, exploration, and activity-based engagement \u2014 moving beyond rote memorization to deep understanding and critical thinking.',
-                  icon: '\uD83C\uDFB2',
-                },
-                {
-                  num: '04',
-                  title: 'Holistic Child Development',
-                  description: 'We nurture the spiritual, intellectual, emotional, and physical development of each child. Students are also introduced to technical, vocational, and essential life skills to prepare them for real-world success.',
-                  icon: '\uD83C\uDF31',
-                },
-                {
-                  num: '05',
-                  title: 'Nutrition & Healthcare Support',
-                  description: 'To support optimal learning and wellbeing, the Foundation provides daily breakfast and lunch. Through partnerships with healthcare professionals including doctors, paediatricians, and pharmacists, we conduct regular health screenings and provide essential medical support such as multivitamins and deworming treatments.',
-                  icon: '\uD83C\uDF4E',
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.num}
-                  initial={{ opacity: 0, y: 30 }}
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+              {methodology.map((item, index) => (
+                <motion.article
+                  key={item.slug}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.45, delay: index * 0.06 }}
                   viewport={{ once: true }}
-                  className={`group relative bg-white rounded-3xl p-8 md:p-10 border border-primary/10 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${
-                    index === 4 ? 'md:col-span-2 md:max-w-2xl md:mx-auto' : ''
-                  }`}
+                  className="group flex flex-col bg-white rounded-2xl p-7 border border-primary/10 hover:border-accent/40 hover:shadow-lg transition-all duration-300"
                 >
-                  {/* Gradient corner glow on hover */}
-                  <div className="absolute -top-16 -right-16 w-44 h-44 rounded-full bg-gradient-to-br from-accent/30 to-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className="absolute -bottom-12 -left-12 w-32 h-32 rounded-full bg-primary/10 blur-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-700" />
-            
-                  {/* Top row: emoji icon + number */}
-                  <div className="relative z-10 flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 group-hover:from-primary/20 group-hover:to-accent/20 transition-colors duration-300">
-                      <span className="text-2xl">{item.icon}</span>
-                    </div>
-                    <span className="text-5xl font-display font-bold text-primary/[0.07] group-hover:text-accent/[0.15] transition-colors duration-500 select-none">
-                      {item.num}
-                    </span>
-                  </div>
-            
-                  {/* Title */}
-                  <h3 className="relative z-10 text-xl font-display font-bold text-primary mb-3 group-hover:text-primary-dark transition-colors duration-300">
+                  <span className="text-xs font-bold tracking-[0.22em] text-accent">{item.number}</span>
+                  <h3 className="mt-4 text-xl font-display font-bold text-primary leading-snug">
                     {item.title}
                   </h3>
-            
-                  {/* Description */}
-                  <p className="relative z-10 text-secondary text-sm leading-relaxed">
-                    {item.description}
+                  <p className="mt-3 text-sm leading-relaxed text-secondary flex-1">
+                    {item.summary}
                   </p>
-            
-                  {/* Bottom progress bar animation */}
-                  <div className="relative z-10 mt-6 h-1 rounded-full bg-primary/10 overflow-hidden">
-                    <div className="h-full w-0 group-hover:w-full bg-gradient-to-r from-accent to-primary rounded-full transition-all duration-700 ease-out" />
-                  </div>
-                </motion.div>
+                  <Link
+                    to={`/about/methodology/${item.slug}`}
+                    className="mt-6 inline-flex items-center text-sm font-semibold text-primary hover:text-accent"
+                  >
+                    Read more
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </motion.article>
               ))}
             </div>
           </div>
@@ -282,75 +244,35 @@ const AboutPage = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-10 lg:gap-14 max-w-5xl mx-auto">
               {founders.map((founder, index) => (
-                <motion.div
+                <motion.article
                   key={founder.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
                   viewport={{ once: true }}
-                  className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-accent/30"
                 >
-                  <div className="relative h-72 overflow-hidden">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-background-alt">
                     <img
                       src={founder.image}
                       alt={founder.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="h-full w-full object-cover object-top"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <span className="inline-block px-3 py-1 bg-accent text-white text-xs font-semibold rounded-full mb-2">
-                        {founder.title}
-                      </span>
-                      <h3 className="text-2xl font-display font-bold text-white">{founder.name}</h3>
-                    </div>
+                    <span className="absolute bottom-0 right-0 bg-secondary px-4 py-2.5 text-xs font-semibold tracking-wide text-white">
+                      Meet {founder.name.split(' ')[0]}
+                    </span>
                   </div>
-                  <div className="p-6">
-                    <p className="text-secondary text-sm mb-4 line-clamp-3">{founder.bio}</p>
-                    
-                    {/* Achievements Preview */}
-                    {founder.achievements && founder.achievements.length > 0 && (
-                      <div className="mb-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Award className="w-4 h-4 text-accent" />
-                          <span className="text-xs font-semibold text-primary uppercase tracking-wider">Key Achievements</span>
-                        </div>
-                        <div className="space-y-1">
-                          {founder.achievements.slice(0, 2).map((achievement, i) => (
-                            <div key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="w-3 h-3 text-accent mt-1 flex-shrink-0" />
-                              <p className="text-secondary text-xs line-clamp-1">{achievement}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Expertise Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {founder.expertise.slice(0, 3).map((skill, i) => (
-                        <span key={i} className="px-3 py-1 bg-accent/10 text-primary text-xs font-medium rounded-full">
-                          {skill}
-                        </span>
-                      ))}
-                      {founder.expertise.length > 3 && (
-                        <span className="px-3 py-1 bg-primary/5 text-primary text-xs rounded-full">
-                          +{founder.expertise.length - 3} more
-                        </span>
-                      )}
-                    </div>
-
-                    {/* View Profile Link */}
-                    <Link
-                      to={`/about/founder/${founder.id}`}
-                      className="inline-flex items-center text-primary font-semibold hover:text-accent transition-colors group/link"
-                    >
-                      View Full Profile
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </motion.div>
+                  <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
+                    {founder.role}
+                  </p>
+                  <h3 className="mt-2 font-display text-3xl md:text-4xl font-medium italic text-secondary leading-tight">
+                    {founder.name}
+                  </h3>
+                  <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-secondary/80">
+                    {founder.bio}
+                  </p>
+                </motion.article>
               ))}
             </div>
           </div>
@@ -380,7 +302,7 @@ const AboutPage = () => {
                     Registered NGO
                   </h2>
                   <p className="text-secondary text-lg leading-relaxed">
-                    The Lys Foundation is a registered non-governmental organisation in Ghana — a Company Limited by Guarantee (LBG) committed to transparency, accountability, and excellence in Montessori education and mother empowerment.
+                    {ngoInfo.descriptionLong}
                   </p>
                 </div>
 

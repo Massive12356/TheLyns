@@ -1,16 +1,21 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Heart, Copy, CheckCircle, Wallet, Building2, Smartphone, CreditCard, Shield, Zap, Gift, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { Heart, Copy, CheckCircle, Wallet, Building2, Smartphone, CreditCard, Shield, Zap, Gift, ArrowRight, Download } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { ngoInfo } from '../data/mockData';
+import { downloadDonationReceipt, type DonationReceipt } from '../utils/donationReceipt';
 
 const DonatePage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [copied, setCopied] = useState<string | null>(null);
   const [selectedAmount, setSelectedAmount] = useState<number | null>(100);
   const [customAmount, setCustomAmount] = useState('');
   const [donorName, setDonorName] = useState('');
   const [donorEmail, setDonorEmail] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [notice, setNotice] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [receipt, setReceipt] = useState<DonationReceipt | null>(null);
+  const paymentReference = searchParams.get('reference') || searchParams.get('trxref');
 
   const copyToClipboard = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
@@ -19,25 +24,107 @@ const DonatePage = () => {
   };
 
   const predefinedAmounts = [50, 100, 250, 500, 1000];
+  const termSponsorship = 4500;
+  const sponsorshipItems = [
+    { label: 'Tuition', amount: 1500 },
+    { label: 'Feeding', amount: 950 },
+    { label: 'Upkeep and utilities', amount: 150 },
+    { label: 'Typing and printing', amount: 100 },
+    { label: 'Toiletries', amount: 500 },
+    { label: 'Uniform', amount: 700 },
+    { label: 'Stationery', amount: 550 },
+    { label: 'PTA dues', amount: 50 },
+  ];
+  const formatCedis = (amount: number) => `GH¢ ${amount.toLocaleString('en-GH')}`;
 
-  const handlePaystackPayment = async () => {
-    const amount = selectedAmount || Number(customAmount);
+  useEffect(() => {
+    if (!paymentReference) return;
+
+    let cancelled = false;
+    const confirmPayment = async () => {
+      setIsProcessing(true);
+      setNotice(null);
+      try {
+        const response = await fetch(`/api/paystack/verify?reference=${encodeURIComponent(paymentReference)}`);
+        const result = await response.json();
+        if (cancelled) return;
+        if (result.ok) {
+          setReceipt({
+            reference: result.reference,
+            amount: result.amount,
+            currency: result.currency,
+            paidAt: result.paidAt,
+            email: result.email,
+            donorName: result.donorName,
+            channel: result.channel,
+            receiptNumber: result.receiptNumber,
+          });
+          setNotice({
+            type: 'success',
+            text: `${result.message} Paystack reference: ${result.reference}. A copy was also emailed to you.`,
+          });
+          setSelectedAmount(100);
+          setCustomAmount('');
+        } else {
+          setReceipt(null);
+          setNotice({ type: 'error', text: result.message || 'This payment was not completed.' });
+        }
+      } catch {
+        if (!cancelled) {
+          setNotice({
+            type: 'error',
+            text: 'We could not confirm the payment. If you were charged, contact us with your Paystack receipt.',
+          });
+        }
+      } finally {
+        if (!cancelled) {
+          setIsProcessing(false);
+          setSearchParams({}, { replace: true });
+        }
+      }
+    };
+
+    confirmPayment();
+    return () => {
+      cancelled = true;
+    };
+  }, [paymentReference, setSearchParams]);
+
+  const handlePaystackPayment = async (amountOverride?: number) => {
+    const amount = amountOverride ?? (selectedAmount || Number(customAmount));
     if (!amount || amount < 1) {
-      alert('Please select or enter a valid amount');
+      setNotice({ type: 'error', text: 'Enter an amount of at least GHS 1.' });
       return;
     }
-    if (!donorEmail) {
-      alert('Please enter your email address');
+    if (!donorEmail.trim()) {
+      setNotice({ type: 'error', text: 'Enter your email address so Paystack can send a receipt.' });
       return;
     }
 
     setIsProcessing(true);
-    // Simulate Paystack payment flow
-    // In production, this would call your backend API to initialize Paystack
-    setTimeout(() => {
+    setNotice(null);
+    setReceipt(null);
+    try {
+      const response = await fetch('/api/paystack/initialize', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: donorEmail.trim(),
+          amount,
+          name: donorName.trim(),
+        }),
+      });
+      const result = await response.json();
+      if (!result.ok || !result.authorizationUrl) {
+        setNotice({ type: 'error', text: result.message || 'Paystack could not start this payment.' });
+        setIsProcessing(false);
+        return;
+      }
+      window.location.assign(result.authorizationUrl);
+    } catch {
+      setNotice({ type: 'error', text: 'Could not reach Paystack. Check your connection and try again.' });
       setIsProcessing(false);
-      alert(`Redirecting to Paystack for GHS ${amount} payment...`);
-    }, 1500);
+    }
   };
 
   return (
@@ -132,8 +219,67 @@ const DonatePage = () => {
           </div>
         </section>
 
+        <section className="py-20 bg-background border-y border-primary/10">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="text-xs font-bold tracking-[0.22em] uppercase text-primary mb-4">
+              Sponsorship · Per academic term
+            </p>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-secondary mb-12">
+              What it costs to sponsor a child
+            </h2>
+            <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-start">
+              <div>
+                <p className="text-2xl md:text-3xl font-display font-semibold text-secondary leading-snug">
+                  One child. One term.<br />A complete learning experience.
+                </p>
+                <p className="mt-5 text-secondary/80 leading-relaxed max-w-sm">
+                  The term sponsorship covers the essential costs that keep a child learning, nourished and equipped.
+                </p>
+                <div className="mt-10 rounded-2xl bg-secondary text-white px-7 py-6 max-w-xs">
+                  <p className="text-xs font-semibold tracking-[0.18em] uppercase text-primary">Total per term</p>
+                  <p className="mt-2 text-4xl font-display font-bold">{formatCedis(termSponsorship)}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedAmount(null);
+                    setCustomAmount(String(termSponsorship));
+                    if (!donorEmail.trim()) {
+                      setNotice({
+                        type: 'error',
+                        text: 'Enter your email below so Paystack can send the receipt for this GH¢ 4,500 sponsorship.',
+                      });
+                      document.getElementById('donate-online')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      return;
+                    }
+                    void handlePaystackPayment(termSponsorship);
+                  }}
+                  disabled={isProcessing}
+                  className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-bold text-black hover:bg-primary-dark disabled:opacity-70"
+                >
+                  <Zap className="w-5 h-5" />
+                  Pay {formatCedis(termSponsorship)} with Paystack
+                </button>
+              </div>
+              <ul className="space-y-2">
+                {sponsorshipItems.map((item, index) => (
+                  <li
+                    key={item.label}
+                    className={`flex items-center justify-between rounded-xl px-5 py-4 ${
+                      index % 2 === 0 ? 'bg-white' : 'bg-primary/10'
+                    }`}
+                  >
+                    <span className="text-secondary">{item.label}</span>
+                    <span className="font-semibold text-primary">{formatCedis(item.amount)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Paystack Payment Section */}
-        <section className="py-20 bg-accent/10">
+        <section id="donate-online" className="py-20 bg-accent/10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -213,6 +359,29 @@ const DonatePage = () => {
                   />
                 </div>
               </div>
+
+              {notice && (
+                <div
+                  role="status"
+                  className={`mb-6 rounded-xl px-4 py-3 text-sm ${
+                    notice.type === 'success'
+                      ? 'bg-green-50 text-green-800 border border-green-200'
+                      : 'bg-red-50 text-red-800 border border-red-200'
+                  }`}
+                >
+                  <p>{notice.text}</p>
+                  {receipt && (
+                    <button
+                      type="button"
+                      onClick={() => downloadDonationReceipt(receipt)}
+                      className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 font-semibold text-black hover:bg-primary-dark"
+                    >
+                      <Download className="h-4 w-4" />
+                      Download receipt
+                    </button>
+                  )}
+                </div>
+              )}
 
               {/* Paystack Button */}
               <button

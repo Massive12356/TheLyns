@@ -43,10 +43,14 @@ export interface NGOInfo {
 export interface PatientStory {
   id: number;
   name: string;
+  slug: string;
   age: number;
   condition: string;
   location: string;
   image: string;
+  headline?: string;
+  paragraphs?: string[];
+  closing?: string;
   story: string;
   outcome: string;
   treatment: string;
@@ -129,6 +133,9 @@ export interface Project {
   type: string;
   description: string;
   fullDescription: string;
+  tagline?: string;
+  objectivesTitle?: string;
+  closing?: string;
   objectives: string[];
   status: string;
   startDate: string;

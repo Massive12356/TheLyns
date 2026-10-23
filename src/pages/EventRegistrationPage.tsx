@@ -114,10 +114,12 @@ const EventRegistrationPage = () => {
                 {event.title}
               </p>
               <div className="bg-background rounded-2xl p-6 mb-8 text-left">
-                <div className="flex items-center text-secondary mb-2">
-                  <Calendar className="w-5 h-5 mr-3 text-primary" />
-                  <span>{event.date}</span>
-                </div>
+                {event.date && event.date !== 'N/A' && (
+                  <div className="flex items-center text-secondary mb-2">
+                    <Calendar className="w-5 h-5 mr-3 text-primary" />
+                    <span>{event.date}</span>
+                  </div>
+                )}
                 <div className="flex items-center text-secondary mb-2">
                   <Clock className="w-5 h-5 mr-3 text-primary" />
                   <span>{event.time}</span>
@@ -221,7 +223,7 @@ const EventRegistrationPage = () => {
                     </p>
                     
                     <div className="space-y-4">
-                      <div className={`flex items-start ${event.date === 'N/A' ? 'hidden' : 'block'}`}>
+                      <div className={`flex items-start ${!event.date || event.date === 'N/A' ? 'hidden' : 'block'}`}>
                         <Calendar className="w-5 h-5 text-primary mr-3 mt-0.5" />
                         <div>
                           <p className={`font-medium text-primary`}>Date</p>

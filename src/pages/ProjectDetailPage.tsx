@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, MapPin, Target, CheckCircle, Users } from 'lucide-react';
+import { ArrowLeft, MapPin, Target, CheckCircle, Users } from 'lucide-react';
 import { projects } from '../data/mockData';
 
 const ProjectDetailPage = () => {
@@ -66,22 +66,40 @@ const ProjectDetailPage = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <h2 className="text-3xl font-display font-bold text-primary mb-6">About This Project</h2>
-                  <p className="text-secondary text-lg leading-relaxed mb-8">
-                    {project.fullDescription}
-                  </p>
+                  {project.tagline && (
+                    <p className="text-xl italic text-primary mb-6">{project.tagline}</p>
+                  )}
+                  <div className="space-y-5 mb-8">
+                    {project.fullDescription.split('\n\n').map((paragraph) => (
+                      <p key={paragraph} className="text-secondary text-lg leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
 
                   <h3 className="text-2xl font-display font-bold text-primary mb-4 flex items-center">
                     <Target className="w-6 h-6 mr-3 text-accent" />
-                    Objectives
+                    {project.objectivesTitle ?? 'Our Objectives'}
                   </h3>
                   <ul className="space-y-3 mb-8">
-                    {project.objectives.map((objective, index) => (
-                      <li key={index} className="flex items-start">
-                        <CheckCircle className="w-5 h-5 mr-3 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-secondary">{objective}</span>
-                      </li>
-                    ))}
+                    {project.objectives.map((objective) => {
+                      const splitAt = objective.indexOf(': ');
+                      const label = splitAt > 0 && splitAt < 40 ? objective.slice(0, splitAt) : '';
+                      const detail = label ? objective.slice(splitAt + 2) : objective;
+                      return (
+                        <li key={objective} className="flex items-start">
+                          <CheckCircle className="w-5 h-5 mr-3 text-accent flex-shrink-0 mt-0.5" />
+                          <span className="text-secondary">
+                            {label && <span className="font-semibold text-primary">{label}: </span>}
+                            {detail}
+                          </span>
+                        </li>
+                      );
+                    })}
                   </ul>
+                  {project.closing && (
+                    <p className="text-secondary text-lg leading-relaxed">{project.closing}</p>
+                  )}
 
                   {/* Gallery */}
                   {project.gallery.length > 0 && (
@@ -114,24 +132,6 @@ const ProjectDetailPage = () => {
                   <h3 className="text-xl font-display font-semibold text-primary mb-6">Project Details</h3>
                   
                   <div className="space-y-4">
-                    <div className={`flex items-center ${project.startDate === 'N/A' ?  'hidden' : 'block'}`}>
-                      <Calendar className="w-5 h-5 text-accent mr-3" />
-                      <div>
-                        <p className="text-xs text-secondary uppercase tracking-wider">Date</p>
-                        <p className="text-primary font-medium">{project.startDate}</p>
-                      </div>
-                    </div>
-
-                    {project.endDate && (
-                      <div className={`flex items-center ${project.endDate === 'N/A' ? 'hidden' : 'block'}`}>
-                        <Calendar className="w-5 h-5 text-accent mr-3" />
-                        <div>
-                          <p className="text-xs text-secondary uppercase tracking-wider">End Date</p>
-                          <p className="text-primary font-medium">{project.endDate}</p>
-                        </div>
-                      </div>
-                    )}
-
                     <div className="flex items-center">
                       <MapPin className="w-5 h-5 text-accent mr-3" />
                       <div>

@@ -4,19 +4,20 @@ import ContactForm from '../components/ContactForm';
 import { ngoInfo } from '../data/mockData';
 
 const ContactPage = () => {
+  const email = 'lysfoundation21@gmail.com';
+  const phones = ['+233 24 345 8689', '+233 266557203'];
   const contactMethods = [
     {
       icon: Mail,
       title: 'Email Us',
-      content: ngoInfo.email,
-      link: `mailto:${ngoInfo.email}`,
+      content: email,
+      link: `mailto:${email}`,
       color: 'bg-blue-500'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      content: ngoInfo.phone,
-      link: `tel:${ngoInfo.phone}`,
+      phones,
       color: 'bg-green-500'
     },
     {
@@ -93,7 +94,19 @@ const ContactPage = () => {
                     <method.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-lg font-display font-semibold text-primary mb-2">{method.title}</h3>
-                  {method.link ? (
+                  {'phones' in method && method.phones ? (
+                    <div className="space-y-1">
+                      {method.phones.map((phone) => (
+                        <a
+                          key={phone}
+                          href={`tel:${phone.replace(/\s/g, '')}`}
+                          className="block text-secondary hover:text-accent transition-colors break-words"
+                        >
+                          {phone}
+                        </a>
+                      ))}
+                    </div>
+                  ) : method.link ? (
                     <a 
                       href={method.link} 
                       className="text-secondary hover:text-accent transition-colors break-words"
@@ -221,14 +234,15 @@ const ContactPage = () => {
               </div>
               <div className="h-96 w-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.0123456789!2d-0.1870!3d5.6037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzYnMTMuMyJOIDDCsDExJzEzLjIiVw!5e0!3m2!1sen!2sgh!4v1234567890"
+                  id="map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.2204440645305!2d-0.2533327!3d5.5342858999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf97cca60d14d1%3A0xee0f377d903c5cf9!2sThe%20Lys%20Foundation!5e0!3m2!1sen!2sgh!4v1792770861718!5m2!1sen!2sgh"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="The Lys Foundation Location"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="The Lys Foundation"
                   className="grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>

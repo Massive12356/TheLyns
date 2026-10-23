@@ -10,7 +10,7 @@ const HomePage = () => {
     {
       id: 1,
       title: 'Open Day & School Tour',
-      date: 'April 18, 2026',
+      date: '',
       type: 'Open Day',
       location: 'The Lys Foundation School, Accra',
       description: 'Tour our Montessori classrooms, meet the teachers, and see how your child or sponsored pupil could join our growing community.',
@@ -19,7 +19,7 @@ const HomePage = () => {
     {
       id: 2,
       title: 'Mother Empowerment Workshop',
-      date: 'May 17, 2026',
+      date: '',
       type: 'Workshop',
       location: 'Lys Foundation Community Hall, Accra',
       description: 'A practical workshop on child hygiene, nutrition, and basic vocational skills for single mothers in our community.',
@@ -28,13 +28,14 @@ const HomePage = () => {
     {
       id: 3,
       title: 'Annual Speech & Prize Day',
-      date: 'July 11, 2026',
+      date: '',
       type: 'School Event',
       location: 'The Lys Foundation School, Accra',
       description: 'Celebrating our pupils’ academic, character, and creative achievements across all six Montessori disciplines.',
       slug: 'speech-day-2026'
     }
   ];
+  const showUpcomingEvents = false;
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const heroSlides = [
@@ -609,27 +610,18 @@ const HomePage = () => {
                   className="group relative bg-white rounded-3xl overflow-hidden border border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
                 >
                   {/* Image with gradient overlay */}
-                  <div className="relative h-52 overflow-hidden">
-                    <img
-                      src={story.image}
-                      alt={story.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    {/* Status badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className={`px-3 py-1.5 text-xs font-bold rounded-full backdrop-blur-md border ${
-                        story.status === 'Recovered'
-                          ? 'bg-accent/90 text-white border-accent/30'
-                          : 'bg-amber-500/90 text-white border-amber-400/30'
-                      }`}>
-                        {story.status}
-                      </span>
-                    </div>
-                    {/* Name overlay at bottom of image */}
+                  <div className="relative h-52 overflow-hidden bg-secondary">
+                    {story.image ? (
+                      <img
+                        src={story.image}
+                        alt={story.name}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      />
+                    ) : null}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     <div className="absolute bottom-4 left-5 right-5">
                       <h3 className="text-xl font-display font-bold text-white drop-shadow-lg">
-                        {story.name}, {story.age}
+                        {story.name}{story.age ? `, ${story.age}` : ''}
                       </h3>
                       <p className="text-white/80 text-sm font-medium mt-0.5">{story.condition}</p>
                     </div>
@@ -646,7 +638,7 @@ const HomePage = () => {
                     </p>
 
                     <Link
-                      to="/success-stories"
+                      to={`/success-stories/${story.slug}`}
                       className="inline-flex items-center text-primary font-semibold text-sm hover:text-accent transition-colors group/link"
                     >
                       Read Full Story
@@ -672,7 +664,8 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Upcoming Events Section */}
+        {/* Upcoming Events — hidden until the event list is updated */}
+        {showUpcomingEvents && (
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -701,10 +694,12 @@ const HomePage = () => {
                   {/* Date Badge */}
                   <div className="flex items-start justify-between mb-5">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex flex-col items-center justify-center shadow-md shadow-primary/20">
-                        <span className="text-white text-[10px] font-bold uppercase leading-none">{event.date.split(' ')[0]}</span>
-                        <span className="text-white text-lg font-bold leading-none">{event.date.split(' ')[1].replace(',', '')}</span>
-                      </div>
+                      {event.date && (
+                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex flex-col items-center justify-center shadow-md shadow-primary/20">
+                          <span className="text-white text-[10px] font-bold uppercase leading-none">{event.date.split(' ')[0]}</span>
+                          <span className="text-white text-lg font-bold leading-none">{event.date.split(' ')[1]?.replace(',', '')}</span>
+                        </div>
+                      )}
                       <div>
                         <span className="px-3 py-1 bg-accent/10 text-accent text-xs font-bold rounded-full">
                           {event.type}
@@ -745,8 +740,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-
-        {/* Get Involved CTA Section */}
+        )}
         <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-3 gap-8">

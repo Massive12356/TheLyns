@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Play, ArrowRight, Calendar, MapPin, Heart } from 'lucide-react';
+import { ArrowRight, Heart } from 'lucide-react';
 import { patientStories } from '../data/mockData';
 
 const SuccessStoriesPage = () => {
@@ -37,161 +37,80 @@ const SuccessStoriesPage = () => {
           </div>
         </section>
 
-        {/* Featured Documentary Story */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {patientStories.filter(s => s.featured).slice(0, 1).map((story) => (
-              <motion.div
-                key={story.id}
-                initial={{ opacity: 0, y: 30 }}
+        <section className="py-20 bg-background">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            {patientStories[0] && (
+              <motion.article
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="grid lg:grid-cols-2 gap-12 items-center"
+                className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start"
               >
-                {/* Video/Image Placeholder */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl group cursor-pointer">
+                {patientStories[0].image ? (
                   <img
-                    src={story.image}
-                    alt={story.name}
-                    className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500"
+                    src={patientStories[0].image}
+                    alt={patientStories[0].name}
+                    className="w-full aspect-[4/5] object-cover object-top rounded-3xl"
                   />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
-                    <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                      <Play className="w-8 h-8 text-white ml-1" />
-                    </div>
+                ) : (
+                  <div className="w-full aspect-[4/5] rounded-3xl bg-secondary flex items-end p-8">
+                    <p className="text-3xl font-display font-bold text-white">{patientStories[0].name}</p>
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-block px-3 py-1 bg-accent text-white text-xs font-semibold rounded-full mb-2">
-                      Documentary
-                    </span>
-                    <h3 className="text-2xl font-display font-bold text-white">{story.name}'s Journey</h3>
-                  </div>
-                </div>
-
-                {/* Story Content */}
+                )}
                 <div>
-                  <span className="text-accent font-semibold text-sm uppercase tracking-wider">Featured Story</span>
-                  <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mt-2 mb-4">
-                    {story.name}'s Story
+                  <h2 className="text-3xl md:text-4xl font-display font-bold text-primary leading-tight">
+                    {patientStories[0].headline ?? `${patientStories[0].name}'s Story`}
                   </h2>
-                  <p className="text-secondary leading-relaxed mb-4">{story.story}</p>
-                  <p className="text-secondary leading-relaxed mb-6">
-                    <strong className="text-primary">Outcome:</strong> {story.outcome}
-                  </p>
-                  
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-background rounded-xl p-4">
-                      <p className="text-secondary text-xs uppercase tracking-wider">Condition</p>
-                      <p className="text-primary font-semibold">{story.condition}</p>
-                    </div>
-                    <div className="bg-background rounded-xl p-4">
-                      <p className="text-secondary text-xs uppercase tracking-wider">Treatment</p>
-                      <p className="text-primary font-semibold">{story.treatment}</p>
-                    </div>
-                    <div className="bg-background rounded-xl p-4">
-                      <p className="text-secondary text-xs uppercase tracking-wider">Location</p>
-                      <p className="text-primary font-semibold">{story.location}</p>
-                    </div>
-                    <div className="bg-background rounded-xl p-4">
-                      <p className="text-secondary text-xs uppercase tracking-wider">Status</p>
-                      <p className="text-accent font-semibold">{story.status}</p>
-                    </div>
+                  <div className="mt-6 space-y-5 text-secondary text-lg leading-relaxed">
+                    {(patientStories[0].paragraphs ?? [patientStories[0].story]).map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
                   </div>
+                  {patientStories[0].closing && (
+                    <p className="mt-8 text-xl italic text-primary leading-relaxed">{patientStories[0].closing}</p>
+                  )}
+                </div>
+              </motion.article>
+            )}
 
-                  {/* Story Timeline */}
-                  {story.recoveryTimeline && (
-                    <div className="mb-6">
-                      <h4 className="text-lg font-display font-semibold text-primary mb-3">Journey Timeline</h4>
-                      <div className="space-y-3">
-                        {story.recoveryTimeline.map((milestone, i) => (
-                          <div key={i} className="flex items-start gap-3">
-                            <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                              <Calendar className="w-4 h-4 text-accent" />
-                            </div>
-                            <div>
-                              <p className="text-primary text-sm font-medium">{milestone.date}</p>
-                              <p className="text-secondary text-sm">{milestone.milestone}</p>
-                            </div>
-                          </div>
-                        ))}
+            <div className="grid md:grid-cols-2 gap-8 mt-16">
+              {patientStories.slice(1).map((story, index) => (
+                <motion.div
+                  key={story.slug}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    to={`/success-stories/${story.slug}`}
+                    className="group block bg-white rounded-3xl overflow-hidden border border-primary/10 hover:shadow-lg transition-shadow"
+                  >
+                    <div className="relative h-64 overflow-hidden bg-secondary">
+                      {story.image ? (
+                        <img
+                          src={story.image}
+                          alt={story.name}
+                          className="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : null}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                      <div className="absolute bottom-4 left-5 right-5">
+                        <h3 className="text-2xl font-display font-bold text-white">
+                          {story.name}{story.age ? `, ${story.age}` : ''}
+                        </h3>
+                        <p className="text-white/80 text-sm mt-1">{story.condition}</p>
                       </div>
                     </div>
-                  )}
-
-                  <Link
-                    to="/donate"
-                    className="inline-flex items-center px-8 py-3 bg-accent text-black font-semibold rounded-full hover:bg-accent-light transition-all duration-300"
-                  >
-                    <Heart className="w-5 h-5 mr-2" />
-                    Support More Children
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* All Stories Grid */}
-        <section className="py-20 bg-accent/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">More Stories</span>
-              <h2 className="text-4xl font-display font-bold text-primary mt-2 mb-4">
-                Pupil & Mother Stories
-              </h2>
-              <p className="text-secondary max-w-2xl mx-auto">
-                Each story represents hope, resilience, and the life-changing power of accessible education.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {patientStories.map((story, index) => (
-                <motion.div
-                  key={story.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img src={story.image} alt={story.name} className="w-full h-full object-cover" />
-                    <div className="absolute top-4 left-4">
-                      <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                        story.status === 'Recovered' ? 'bg-accent text-white' : 'bg-amber-500 text-white'
-                      }`}>
-                        {story.status}
+                    <div className="p-6">
+                      <p className="text-secondary text-sm leading-relaxed line-clamp-3">{story.story}</p>
+                      <span className="mt-5 inline-flex items-center text-sm font-semibold text-primary group-hover:text-accent">
+                        Read story
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-secondary mb-2">
-                      <MapPin className="w-4 h-4" />
-                      {story.location}
-                    </div>
-                    <h3 className="text-xl font-display font-semibold text-primary mb-1">{story.name}, {story.age}</h3>
-                    <p className="text-accent text-sm font-medium mb-3">{story.condition}</p>
-                    <p className="text-secondary text-sm mb-4 line-clamp-3">{story.story}</p>
-                    
-                    {/* Progress Bar */}
-                    <div className="mb-4">
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-secondary">Progress</span>
-                        <span className="text-primary font-semibold">
-                          ${story.fundsRaised.toLocaleString()} / ${story.fundsNeeded.toLocaleString()}
-                        </span>
-                      </div>
-                      <div className="w-full h-2 bg-background rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-accent rounded-full transition-all duration-1000"
-                          style={{ width: `${Math.min((story.fundsRaised / story.fundsNeeded) * 100, 100)}%` }}
-                        />
-                      </div>
-                    </div>
-                    
-                    <p className="text-secondary text-xs mb-4">{story.donorImpact}</p>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>

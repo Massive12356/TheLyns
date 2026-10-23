@@ -1,4 +1,5 @@
-import { blogPosts, events, faqs, founders, ngoInfo, projects } from '../data/mockData';
+import { blogPosts, events, faqs, founders, ngoInfo, patientStories, projects } from '../data/mockData';
+import { methodology } from '../data/methodology';
 
 export const SITE_URL = (
   (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_SITE_URL) ||
@@ -263,16 +264,34 @@ function dynamicPages(): PageSEO[] {
     changefreq: 'monthly',
   }));
 
+  const methodologyPages: PageSEO[] = methodology.map((item) => ({
+    path: `/about/methodology/${item.slug}`,
+    title: `${item.title} | The Lys Foundation Methodology`,
+    description: truncate(item.summary),
+    keywords: `${item.title}, Lys Foundation methodology, education NGO Ghana`,
+    priority: 0.6,
+    changefreq: 'monthly',
+  }));
+
+  const storyPages: PageSEO[] = patientStories.map((story) => ({
+    path: `/success-stories/${story.slug}`,
+    title: `${story.headline ?? story.name} | The Lys Foundation`,
+    description: truncate(story.story),
+    image: story.image || undefined,
+    priority: 0.6,
+    changefreq: 'monthly',
+  }));
+
   const eventPages: PageSEO[] = events.map((event) => ({
     path: `/events/${eventSlug(event)}/register`,
     title: `Register: ${event.title} | The Lys Foundation`,
-    description: truncate(`${event.description} ${event.date} at ${event.location}.`),
+    description: truncate(`${event.description}${event.date ? ` ${event.date}` : ''} at ${event.location}.`),
     image: event.image,
     priority: 0.4,
     changefreq: 'weekly',
   }));
 
-  return [...founderPages, ...projectPages, ...blogPages, ...eventPages];
+  return [...founderPages, ...projectPages, ...blogPages, ...methodologyPages, ...storyPages, ...eventPages];
 }
 
 export function getAllPages(): PageSEO[] {
