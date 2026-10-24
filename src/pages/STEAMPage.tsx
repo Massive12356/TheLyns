@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Beaker, Cpu, Wrench, Palette, Calculator, Sparkles, Users, BookOpen } from 'lucide-react';
+import { projects } from '../data/mockData';
+import { OptimizedImage } from '../components/OptimizedImage';
+
+const steamGallery = projects.find((project) => project.slug === 'steam-education-program')?.gallery ?? [];
 
 const STEAMPage = () => {
   const steamPillars = [
@@ -20,7 +24,7 @@ const STEAMPage = () => {
         'Nature exploration and specimen collection',
         'Introduction to the scientific method'
       ],
-      image: 'https://images.pexels.com/photos/8853509/pexels-photo-8853509.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: steamGallery[0]
     },
     {
       letter: 'T',
@@ -38,7 +42,7 @@ const STEAMPage = () => {
         'Robotics basics with simple kits',
         'Online safety and digital citizenship'
       ],
-      image: 'https://images.pexels.com/photos/5905888/pexels-photo-5905888.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: steamGallery[1]
     },
     {
       letter: 'E',
@@ -56,7 +60,7 @@ const STEAMPage = () => {
         'Introduction to architectural concepts',
         'Design thinking for everyday problems'
       ],
-      image: 'https://images.pexels.com/photos/8617687/pexels-photo-8617687.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: steamGallery[2]
     },
     {
       letter: 'A',
@@ -74,7 +78,7 @@ const STEAMPage = () => {
         'Cultural dance and traditional crafts',
         'Art history introduction through famous works'
       ],
-      image: 'https://images.pexels.com/photos/8853473/pexels-photo-8853473.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: steamGallery[3]
     },
     {
       letter: 'M',
@@ -92,7 +96,7 @@ const STEAMPage = () => {
         'Practical measurement activities',
         'Math games and problem-solving puzzles'
       ],
-      image: 'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: steamGallery[4]
     }
   ];
 
@@ -276,9 +280,11 @@ const STEAMPage = () => {
                   {/* Image */}
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                     <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] group">
-                      <img
+                      <OptimizedImage
                         src={pillar.image}
-                        alt={pillar.title}
+                        alt={`${pillar.title} at The Lys Foundation`}
+                        sizes="(min-width: 1024px) 50vw, 100vw"
+                        widths={[640, 960]}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -347,59 +353,6 @@ const STEAMPage = () => {
                   <p className="text-secondary text-sm leading-relaxed">{project.description}</p>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Gallery Preview */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl font-display font-bold text-primary mb-4">
-                STEAM in Action
-              </h2>
-              <p className="text-secondary max-w-2xl mx-auto">
-                Browse through photos from our STEAM activities and projects
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12">
-              {[
-                'https://images.pexels.com/photos/8853509/pexels-photo-8853509.jpeg?auto=compress&cs=tinysrgb&w=600',
-                'https://images.pexels.com/photos/5905888/pexels-photo-5905888.jpeg?auto=compress&cs=tinysrgb&w=600',
-                'https://images.pexels.com/photos/8853473/pexels-photo-8853473.jpeg?auto=compress&cs=tinysrgb&w=600'
-              ].map((image, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="rounded-2xl overflow-hidden aspect-square group cursor-pointer"
-                >
-                  <img
-                    src={image}
-                    alt={`STEAM activity ${index + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="text-center">
-              <Link
-                to="/gallery"
-                className="inline-flex items-center px-8 py-3.5 bg-primary text-black font-semibold rounded-full hover:bg-primary-light transition-all duration-300 shadow-lg hover:-translate-y-0.5"
-              >
-                View Full Gallery
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
             </div>
           </div>
         </section>
