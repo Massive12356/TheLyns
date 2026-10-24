@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Target, Shield, ArrowRight, Activity } from 'lucide-react';
 import { ngoInfo, founders, impactStats } from '../data/mockData';
+import { OptimizedImage } from '../components/OptimizedImage';
 import { methodology } from '../data/methodology';
 
 const AboutPage = () => {
@@ -80,9 +81,11 @@ const AboutPage = () => {
                 className="relative"
               >
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                  <img
-                    src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499480/file_0000000058e471f48d9627ee6cc2ce00_oscrsn.png"
-                    alt="Lys Foundation pupils learning in a Montessori classroom in Accra, Ghana"
+                  <OptimizedImage
+                    src="https://res.cloudinary.com/cmpwim01/image/upload/v1792762493/IMG-20241220-WA0019_1.jpg"
+                    alt="Lys Foundation pupils smiling together in their yellow and red uniforms"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    widths={[640, 960, 1400]}
                     className="w-full h-auto"
                   />
                 </div>

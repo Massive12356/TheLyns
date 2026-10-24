@@ -133,13 +133,13 @@ const ImpactPage = () => {
           </div>
         </section>
 
-        {/* Featured Pupil Stories */}
+        {/* Featured Stories */}
         <section className="py-20 bg-background-alt">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <span className="text-accent font-semibold text-sm uppercase tracking-wider">Real Stories</span>
               <h2 className="text-4xl font-display font-bold text-primary mt-2 mb-4">
-                Featured Pupil Stories
+                Featured Stories
               </h2>
               <p className="text-secondary max-w-2xl mx-auto">
                 Meet the children whose lives have been transformed by your generosity.

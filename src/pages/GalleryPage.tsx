@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Camera, Grid, Filter } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { Camera, Grid, Filter, Loader2 } from 'lucide-react';
 import { galleryCategories, galleryImages } from '../data/mockData';
 import { OptimizedImage } from '../components/OptimizedImage';
 import { optimizedImage } from '../utils/images';
@@ -8,12 +8,59 @@ import { optimizedImage } from '../utils/images';
 const GalleryPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [lightboxLoading, setLightboxLoading] = useState(false);
 
   const categories = ['All', ...galleryCategories];
   
-  const filteredImages = activeCategory === 'All'
-    ? galleryImages
-    : galleryImages.filter(img => img.category === activeCategory);
+  const filteredImages = useMemo(
+    () => activeCategory === 'All'
+      ? galleryImages
+      : galleryImages.filter(img => img.category === activeCategory),
+    [activeCategory]
+  );
+
+  const openImage = (index: number) => {
+    setLightboxLoading(true);
+    setSelectedImage(index);
+  };
+
+  const lightboxSrc = selectedImage === null
+    ? ''
+    : optimizedImage(filteredImages[selectedImage]?.url || '', 1600);
+
+  useEffect(() => {
+    if (!lightboxSrc) return;
+
+    let cancelled = false;
+    const img = new Image();
+    const finish = () => {
+      if (!cancelled) setLightboxLoading(false);
+    };
+
+    img.onload = finish;
+    img.onerror = finish;
+    img.src = lightboxSrc;
+
+    if (img.complete && img.naturalWidth > 0) {
+      finish();
+    } else {
+      setLightboxLoading(true);
+    }
+
+    const total = filteredImages.length;
+    if (selectedImage !== null && total > 1) {
+      [1, -1].forEach((step) => {
+        const neighbor = filteredImages[(selectedImage + step + total) % total];
+        if (!neighbor) return;
+        const preload = new Image();
+        preload.src = optimizedImage(neighbor.url, 1600);
+      });
+    }
+
+    return () => {
+      cancelled = true;
+    };
+  }, [lightboxSrc, selectedImage, filteredImages]);
 
   return (
     <>
@@ -92,7 +139,7 @@ const GalleryPage = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  onClick={() => setSelectedImage(index)}
+                  onClick={() => openImage(index)}
                   className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
                 >
                   <OptimizedImage
@@ -144,11 +191,19 @@ const GalleryPage = () => {
               >
                 ✕
               </button>
-              <img
-                src={optimizedImage(filteredImages[selectedImage]?.url || '', 1600)}
-                alt={filteredImages[selectedImage]?.caption}
-                className="w-full max-h-[75vh] object-contain rounded-lg"
-              />
+              <div className="relative flex items-center justify-center min-h-[50vh]">
+                {lightboxLoading && (
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3" role="status">
+                    <Loader2 className="w-10 h-10 text-white animate-spin" />
+                    <p className="text-white/80 text-sm">Loading photo...</p>
+                  </div>
+                )}
+                <img
+                  src={lightboxSrc}
+                  alt={lightboxLoading ? '' : filteredImages[selectedImage]?.caption}
+                  className={`w-full max-h-[75vh] object-contain rounded-lg transition-opacity duration-200 ${lightboxLoading ? 'opacity-0' : 'opacity-100'}`}
+                />
+              </div>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
                 <p className="text-white font-semibold">{filteredImages[selectedImage]?.caption}</p>
                 <span className="inline-block mt-2 px-3 py-1 bg-accent/90 text-white text-sm rounded-full">
@@ -159,7 +214,7 @@ const GalleryPage = () => {
               {/* Navigation */}
               <div className="flex justify-between items-center mt-4">
                 <button
-                  onClick={() => setSelectedImage(selectedImage > 0 ? selectedImage - 1 : filteredImages.length - 1)}
+                  onClick={() => openImage(selectedImage > 0 ? selectedImage - 1 : filteredImages.length - 1)}
                   className="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-colors"
                 >
                   ← Previous
@@ -168,7 +223,7 @@ const GalleryPage = () => {
                   {selectedImage + 1} / {filteredImages.length}
                 </p>
                 <button
-                  onClick={() => setSelectedImage(selectedImage < filteredImages.length - 1 ? selectedImage + 1 : 0)}
+                  onClick={() => openImage(selectedImage < filteredImages.length - 1 ? selectedImage + 1 : 0)}
                   className="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-colors"
                 >
                   Next →

@@ -796,6 +796,17 @@ const galleryAlbums: { category: string; urls: string[] }[] = [
     ],
   },
   {
+    category: 'Extra Curriculum',
+    urls: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792761769/20250822_123604.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792761768/20250822_123533.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792761768/IMG_9842.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792761759/IMG_9848.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792761758/IMG_9866.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1792761757/IMG_9831.jpg',
+    ],
+  },
+  {
     category: 'Student Activity',
     urls: [
       'https://res.cloudinary.com/cmpwim01/image/upload/v1792762967/IMG_7176.jpg',
