@@ -69,7 +69,7 @@ export interface PageSEO {
 }
 
 const DEFAULT_DESCRIPTION =
-  'The Lys Foundation provides quality Montessori education, daily meals, and family support to underprivileged children — especially orphans and children of single mothers — across Ghana.';
+  'The Lys Foundation is a registered education NGO in Accra, Ghana. We provide Montessori schooling, daily meals, and family support to underprivileged children and single mothers.';
 
 function eventSlug(event: (typeof events)[number]) {
   return event.registrationLink.split('/').filter(Boolean)[1];
@@ -84,7 +84,7 @@ function truncate(text: string, max = 160) {
 export const staticPages: PageSEO[] = [
   {
     path: '/',
-    title: 'The Lys Foundation | Montessori Education for Children in Ghana',
+    title: 'The Lys Foundation | Education NGO in Accra, Ghana',
     description: DEFAULT_DESCRIPTION,
     keywords: DEFAULT_KEYWORDS,
     priority: 1,
@@ -92,9 +92,9 @@ export const staticPages: PageSEO[] = [
   },
   {
     path: '/about',
-    title: 'About The Lys Foundation | Education NGO in Ghana',
+    title: 'The Lys Foundation | About Our Education NGO in Ghana',
     description:
-      'Learn about The Lys Foundation (also known as Lys or Lyn Foundation) — a Ghana education NGO providing Montessori schooling to underprivileged children since 2015.',
+      'About The Lys Foundation, a registered education NGO in Accra, Ghana. Since 2015 we have provided Montessori schooling to underprivileged children.',
     keywords:
       'about Lys Foundation, Lyn Foundation, education NGO Ghana, Jemima Adamah, Ewurama Ocran-Gbekor, Montessori school Accra',
     priority: 0.9,
@@ -199,9 +199,9 @@ export const staticPages: PageSEO[] = [
   },
   {
     path: '/faq',
-    title: 'FAQ | Sponsoring a Child & Lys Foundation School',
+    title: 'The Lys Foundation FAQ | School, Donations and Sponsorship',
     description:
-      'Answers about donating, sponsoring a child, Montessori education, volunteering, and partnering with The Lys Foundation in Ghana.',
+      'Answers about The Lys Foundation in Accra: donating, sponsoring a child, Montessori education, volunteering, and partnering with our NGO in Ghana.',
     priority: 0.7,
     changefreq: 'monthly',
   },
@@ -343,8 +343,23 @@ export function buildOrganizationJsonLd() {
     description: ngoInfo.descriptionLong,
     slogan: ngoInfo.tagline,
     foundingDate: ngoInfo.founded,
-    email: ngoInfo.email,
-    telephone: ngoInfo.phone,
+    disambiguatingDescription:
+      'Registered children\'s education NGO in Accra, Ghana (LBG-NGO-2021). The Lys Foundation runs a Montessori school for underprivileged children and is not a cosmetics brand.',
+    email: 'lysfoundation21@gmail.com',
+    telephone: ['+233243458689', '+233266557203'],
+    identifier: {
+      '@type': 'PropertyValue',
+      name: 'Ghana Registrar General registration',
+      value: ngoInfo.registrationNumber,
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      email: 'lysfoundation21@gmail.com',
+      telephone: '+233243458689',
+      areaServed: 'GH',
+      availableLanguage: ['English'],
+    },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Accra',

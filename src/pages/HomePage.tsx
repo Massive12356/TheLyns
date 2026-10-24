@@ -53,7 +53,7 @@ const HomePage = () => {
     {
       title: "Transforming Lives Through Learning",
       highlight: "Transforming",
-      description: "Quality education, daily nourishment, and family support — empowering Ghana's next generation to dream bigger and achieve more.",
+      description: "The Lys Foundation gives children in Ghana quality education, daily meals, and family support so they can dream bigger and achieve more.",
       image: "https://res.cloudinary.com/cmpwim01/image/upload/v1792762491/IMG_7135.jpg",
     },
   ];
@@ -107,13 +107,13 @@ const HomePage = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                   </span>
-                  <span className="text-white/90 text-xs font-semibold tracking-[0.2em] uppercase">
+                  <h1 className="text-white/90 text-xs font-semibold tracking-[0.2em] uppercase">
                     The Lys Foundation · Est. 2015
-                  </span>
+                  </h1>
                 </motion.div>
 
                 {/* Headline */}
-                <motion.h1
+                <motion.h2
                   key={`headline-${currentSlide}`}
                   className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-[1.05] mb-6"
                   initial={{ opacity: 0, x: -40 }}
@@ -137,7 +137,7 @@ const HomePage = () => {
                     </motion.svg>
                   </span>
                   {heroSlides[currentSlide].title.split(heroSlides[currentSlide].highlight)[1]}
-                </motion.h1>
+                </motion.h2>
 
                 {/* Description */}
                 <motion.p
