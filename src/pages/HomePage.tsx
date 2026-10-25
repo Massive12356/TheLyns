@@ -4,6 +4,7 @@ import { ArrowRight, Heart, Users, Activity, MapPin, ChevronLeft, ChevronRight, 
 import { useState } from 'react';
 import { ngoInfo, projects, patientStories, donorCompanies } from '../data/mockData';
 import { OptimizedImage } from '../components/OptimizedImage';
+import FlyerPopup from '../components/FlyerPopup';
 import { optimizedImage } from '../utils/images';
 
 const HomePage = () => {
@@ -63,6 +64,7 @@ const HomePage = () => {
 
   return (
     <>
+      <FlyerPopup />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
