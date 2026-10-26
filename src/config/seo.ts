@@ -18,11 +18,6 @@ export const LOGO_URL =
 export const DEFAULT_KEYWORDS = [
   'The Lys Foundation',
   'Lys Foundation',
-  'The Lyns Foundation',
-  'Lyns Foundation',
-  'Lyn Foundation',
-  'The Lyns',
-  'Lyn Foundation Ghana',
   'Lys Foundation Ghana',
   'Lys Foundation School',
   'education NGO Ghana',
@@ -41,13 +36,7 @@ export const DEFAULT_KEYWORDS = [
 
 export const ALTERNATE_NAMES = [
   'Lys Foundation',
-  'The Lyns Foundation',
-  'Lyn Foundation',
-  'The Lyn Foundation',
-  'The Lyns',
-  'Lyns Foundation',
   'Lys Foundation Ghana',
-  'Lyn Foundation Ghana',
   'Lys Foundation School',
   'The Lys Foundation School',
 ];
@@ -96,7 +85,7 @@ export const staticPages: PageSEO[] = [
     description:
       'About The Lys Foundation, a registered education NGO in Accra, Ghana. Since 2015 we have provided Montessori schooling to underprivileged children.',
     keywords:
-      'about Lys Foundation, Lyn Foundation, education NGO Ghana, Jemima Adamah, Ewurama Ocran-Gbekor, Montessori school Accra',
+      'about Lys Foundation, education NGO Ghana, Jemima Adamah, Ewurama Ocran-Gbekor, Montessori school Accra',
     priority: 0.9,
     changefreq: 'monthly',
   },
@@ -167,7 +156,7 @@ export const staticPages: PageSEO[] = [
     description:
       'Donate to The Lys Foundation or sponsor a child from $25/month. Your gift funds Montessori tuition, meals, uniforms, and learning materials for children in Ghana.',
     keywords:
-      'donate education Ghana, sponsor a child Ghana, donate to children NGO, Lys Foundation donate, Lyn Foundation donate',
+      'donate education Ghana, sponsor a child Ghana, donate to children NGO, Lys Foundation donate',
     priority: 0.9,
     changefreq: 'monthly',
   },
@@ -193,7 +182,7 @@ export const staticPages: PageSEO[] = [
     title: 'Contact The Lys Foundation | Accra Education NGO',
     description:
       'Contact The Lys Foundation in Accra about sponsoring a child, volunteering, partnerships, donations, or enrolling in our Montessori school.',
-    keywords: 'contact Lys Foundation, Lyn Foundation contact, education NGO Accra phone, sponsor a child Ghana contact',
+    keywords: 'contact Lys Foundation, education NGO Accra phone, sponsor a child Ghana contact',
     priority: 0.7,
     changefreq: 'yearly',
   },
