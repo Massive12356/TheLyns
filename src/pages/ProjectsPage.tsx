@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Filter } from 'lucide-react';
-import { projects } from '../data/mockData';
+import { patientStories, projects } from '../data/mockData';
 import { OptimizedImage } from '../components/OptimizedImage';
 import { useState } from 'react';
 
@@ -12,6 +12,9 @@ const ProjectsPage = () => {
   const filteredProjects = filter === 'All' 
     ? projects 
     : projects.filter(p => p.category === filter);
+  const empowermentStories = filter === 'Empowerment'
+    ? patientStories.filter((story) => story.slug === 'mary-kankam' && story.image)
+    : [];
 
   return (
     <>
@@ -137,9 +140,53 @@ const ProjectsPage = () => {
                   </div>
                 </motion.div>
               ))}
+              {empowermentStories.map((story, index) => (
+                <motion.div
+                  key={story.slug}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: (filteredProjects.length + index) * 0.1 }}
+                  className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <OptimizedImage
+                      src={story.image}
+                      alt={story.name}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      widths={[480, 800]}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-white text-primary text-xs font-semibold rounded-full shadow-sm">
+                        Empowerment
+                      </span>
+                      <span className="px-3 py-1 bg-white text-secondary text-xs rounded-full shadow-sm">
+                        {story.condition}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-display font-semibold text-primary mb-3 group-hover:text-accent transition-colors">
+                      {story.name}
+                    </h3>
+                    <p className="text-secondary text-sm mb-4 line-clamp-3">
+                      {story.story}
+                    </p>
+                    <div className="flex items-center justify-end">
+                      <Link
+                        to={`/success-stories/${story.slug}`}
+                        className="inline-flex items-center text-primary font-medium hover:text-accent transition-colors"
+                      >
+                        Read Story
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
-            {filteredProjects.length === 0 && (
+            {filteredProjects.length === 0 && empowermentStories.length === 0 && (
               <div className="text-center py-20">
                 <p className="text-secondary text-lg">No projects found in this category.</p>
               </div>

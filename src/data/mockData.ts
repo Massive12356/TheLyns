@@ -276,6 +276,7 @@ export const projects: Project[] = [
     image: 'https://res.cloudinary.com/cmpwim01/image/upload/v1792762744/Outdoor_Alphabet_Class_on_the_Veranda.png',
     gallery: [
       'https://res.cloudinary.com/cmpwim01/image/upload/v1792762744/Outdoor_Alphabet_Class_on_the_Veranda.png',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1793202163/M1.jpg',
     ],
     featured: false,
     impact: {
@@ -638,7 +639,7 @@ export const patientStories: PatientStory[] = [
     age: 0,
     condition: 'Mother of three',
     location: '',
-    image: '',
+    image: 'https://res.cloudinary.com/cmpwim01/image/upload/v1793202163/M1.jpg',
     headline: "Mary Kankam: From Homelessness to Hope: A Mother's Journey Towards Independence",
     story: 'A single mother of three, Mary went from having no stable home to a sewing apprenticeship, with graduation expected in January 2027.',
     paragraphs: [
@@ -864,10 +865,19 @@ export const donorCompanies: { name: string; slug: string; images: string[] }[] 
     ],
   },
   {
+    name: 'Rehoboath',
+    slug: 'rehoboath',
+    images: [
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1793202116/Rehoboath_2.png',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1793202114/Rehoboath_1.jpg',
+    ],
+  },
+  {
     name: 'STEMAID',
     slug: 'stemaid',
     images: [
       'https://res.cloudinary.com/cmpwim01/image/upload/v1792764092/photo_88_2026-09-09_12-00-22.jpg',
+      'https://res.cloudinary.com/cmpwim01/image/upload/v1793201907/STEMAIDE_2.jpg',
     ],
   },
   {

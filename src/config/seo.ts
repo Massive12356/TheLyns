@@ -146,7 +146,7 @@ export const staticPages: PageSEO[] = [
     path: '/donors',
     title: 'Our Donors | Companies Supporting The Lys Foundation',
     description:
-      'Meet the companies that support The Lys Foundation, including Akenkan Shop, Amadeus, Ghana Institute of Surveyors, IFED Global, STEMAID, and STEMSHECAN.',
+      'Meet the companies that support The Lys Foundation, including Akenkan Shop, Amadeus, Ghana Institute of Surveyors, IFED Global, Rehoboath, STEMAID, and STEMSHECAN.',
     priority: 0.6,
     changefreq: 'monthly',
   },
