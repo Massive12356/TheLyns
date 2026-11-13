@@ -30,9 +30,9 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-6">
               <div className="bg-white rounded-xl p-2">
                 <img 
-                  src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/IMG_20260623_175709_771_vwkkgq.png"
+                  src="/logo.png"
                   alt="The Lys Foundation — education NGO for children in Ghana"
-                  className="h-14 w-auto object-contain"
+                  className="h-16 w-auto object-contain"
                 />
               </div>
             </div>

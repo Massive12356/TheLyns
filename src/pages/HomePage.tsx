@@ -231,7 +231,7 @@ const HomePage = () => {
           
           {/* Carousel Controls (bottom-right) */}
           <motion.div
-            className="absolute bottom-12 right-12 lg:bottom-14 lg:right-16 z-20 flex items-center gap-5"
+            className="hidden lg:flex absolute bottom-12 right-12 lg:bottom-14 lg:right-16 z-20 items-center gap-5"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}

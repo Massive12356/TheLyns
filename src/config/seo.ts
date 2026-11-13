@@ -12,8 +12,7 @@ export const SITE_TAGLINE = 'Quality Montessori education for every child in Gha
 export const DEFAULT_OG_IMAGE =
   'https://res.cloudinary.com/dsk62cvbs/image/upload/w_1200,h_630,c_fill,g_auto/v1782499479/file_00000000e51071f4a3e4e86ccb41641e_rrfpuz.png';
 
-export const LOGO_URL =
-  'https://res.cloudinary.com/dsk62cvbs/image/upload/v1780176453/Picture1_w63q9q.png';
+export const LOGO_URL = `${SITE_URL}/logo.png`;
 
 export const DEFAULT_KEYWORDS = [
   'The Lys Foundation',

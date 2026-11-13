@@ -46,9 +46,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 flex-shrink-0 group">
             <img 
-              src="https://res.cloudinary.com/dsk62cvbs/image/upload/v1782499484/IMG_20260623_175709_771_vwkkgq.png"
+              src="/logo.png"
               alt="The Lys Foundation — quality Montessori education for children in Ghana"
-              className="h-14 md:h-16 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
           </Link>
 
