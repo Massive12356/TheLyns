@@ -420,7 +420,7 @@ const HomePage = () => {
                         <p className="text-white/90 font-medium italic text-lg leading-relaxed">
                           "If you give a man a fish, you feed him for a day. If you teach a man to fish, you feed him for a lifetime."
                         </p>
-                        <cite className="text-accent text-sm not-italic mt-2 block">— The Lys Foundation</cite>
+                        <cite className="text-accent text-sm not-italic mt-2 block">— Anne Isabella Thackeray Ritchie</cite>
                       </blockquote>
                     </div>
                   </div>

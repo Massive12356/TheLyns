@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Heart, Copy, CheckCircle, Wallet, Building2, Smartphone, CreditCard, Shield, Zap, Gift, ArrowRight, Download } from 'lucide-react';
+import { Heart, Copy, CheckCircle, Wallet, Building2, CreditCard, Shield, Zap, Gift, ArrowRight, Download } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { ngoInfo } from '../data/mockData';
 import { downloadDonationReceipt, type DonationReceipt } from '../utils/donationReceipt';
@@ -306,6 +306,9 @@ const DonatePage = () => {
                 <p className="text-secondary max-w-lg mx-auto">
                   Quick, secure, and seamless payment with Paystack. Choose an amount or enter a custom donation.
                 </p>
+                <p className="text-primary text-sm max-w-lg mx-auto mt-4">
+                  <strong>Note:</strong> All donations are processed securely. You will receive a receipt via email for your records.
+                </p>
               </div>
 
               {/* Amount Selection */}
@@ -524,12 +527,14 @@ const DonatePage = () => {
                 className="bg-white rounded-2xl p-8 border border-primary/5 shadow-sm"
               >
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mr-4">
-                    <Smartphone className="w-6 h-6 text-accent" />
-                  </div>
+                  <img
+                    src="https://res.cloudinary.com/cmpwim01/image/upload/v1794612551/teleCash.png"
+                    alt="Telecel Cash"
+                    className="h-14 w-14 rounded-xl object-cover mr-4"
+                  />
                   <div>
                     <h3 className="text-xl font-display font-semibold text-primary">Mobile Money</h3>
-                    <p className="text-secondary text-sm">Quick and convenient mobile payment</p>
+                    <p className="text-secondary text-sm">Telecel Cash</p>
                   </div>
                 </div>
 
@@ -560,9 +565,9 @@ const DonatePage = () => {
                     </div>
                   </div>
 
-                  <div className="bg-accent/10 rounded-xl p-6 mt-6">
+                  <div className="bg-accent/10 rounded-xl p-6">
                     <p className="text-primary text-sm text-center">
-                      <strong>Note:</strong> All donations are processed securely. You will receive a receipt via email for your records.
+                      <strong>You can trust this number.</strong> It is the official Telecel Cash account of The Lys Foundation. Every gift goes toward tuition, meals, and care for the children.
                     </p>
                   </div>
                 </div>

@@ -64,6 +64,7 @@ const AboutPage = () => {
                     <p className="italic text-primary">
                       “Give a man a fish, and you feed him for a day. Teach a man to fish, and you feed him for a lifetime.”
                     </p>
+                    <cite className="text-accent text-sm not-italic mt-2 block">— Anne Isabella Thackeray Ritchie</cite>
                   </blockquote>
                   <p>
                     What began as a simple vision to give every child a fair chance in life has grown into a transformative initiative encompassing a Montessori school, serving underserved communities with educational initiatives, daily nutritious meals and routine health checks for our pupils, and empowerment programmes that equip single mothers with the skills and opportunities to build sustainable livelihoods.
@@ -181,7 +182,7 @@ const AboutPage = () => {
                         <p className="text-white/90 font-medium italic text-lg leading-relaxed">
                           "If you give a man a fish, you feed him for a day. If you teach a man to fish, you feed him for a lifetime."
                         </p>
-                        <cite className="text-accent text-sm not-italic mt-2 block">— The Lys Foundation</cite>
+                        <cite className="text-accent text-sm not-italic mt-2 block">— Anne Isabella Thackeray Ritchie</cite>
                       </blockquote>
                     </div>
                   </div>

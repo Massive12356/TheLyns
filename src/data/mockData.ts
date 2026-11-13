@@ -46,13 +46,13 @@ export const ngoInfo: NGOInfo = {
   email: 'info@lysfoundation.org',
   businessHours: 'Monday - Friday: 7:30 AM - 4:00 PM',
   bankDetails: {
-    accountName: 'Lys Foundation',
+    accountName: 'The Lys Foundation',
     bankName: 'Fidelity Bank',
     accountNumber: '2090406972518',
     branch: 'Dzorwulu'
   },
   momoDetails: {
-    number: '+233 59 123 4567',
+    number: '0506920596',
     name: 'The Lys Foundation'
   },
   socialMedia: {
